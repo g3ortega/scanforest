@@ -5,18 +5,18 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-web/.bundle
+.bundle
 
 # Ignore the default SQLite database.
-web/db/*.sqlite3
+db/*.sqlite3
 db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-web/log/*
-!web/log/.keep
-web/tmp
+log/*
+!log/.keep
+tmp
 
-web/.idea/
-web/atlassian-ide-plugin.xml
+.idea/
+atlassian-ide-plugin.xml
 .idea
 .idea/*
