@@ -37,6 +37,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+
 namespace :deploy do
 
   after :restart, :clear_cache do
@@ -49,8 +50,14 @@ namespace :deploy do
   end
 
   desc "Checkout subdirectory and delete all the other stuff"
+
   task :checkout_subdir do
-    run "mv #{current_release}/#{subdir}/ /tmp && rm -rf #{current_release}/* && mv /tmp/#{subdir}/* #{current_release}"
+    on roles :all do
+      execute :mv, "#{deploy_to}/current/web/ /tmp && rm -rf #{deploy_to}/current/* && mv /tmp/web/* #{deploy_to}/current/"
+    end
   end
 
 end
+
+
+after "deploy:updating", "deploy:checkout_subdir"
