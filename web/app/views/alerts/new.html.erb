@@ -1,0 +1,32 @@
+<h1>Alerta nueva</h1>
+<%= form_for :alert, url: alerts_path do |f| %>
+<p>
+<%= f.label :lat, 'Latitude' %><br>
+<%= f.text_field :lat %>
+</p>
+
+<p>
+<%= f.label :lon, 'Longitude' %><br>
+<%= f.text_field :lon %>
+</p>
+
+<p>
+<%= f.label :magnitude %><br>
+<%= f.text_field :magnitude %>
+</p>
+
+<p>
+<%= f.label :description %><br>
+<%= f.text_area "description[reason1]", size: '25x2' %>
+</p>
+
+<p>
+<%= f.label :area %><br>
+<%= f.text_field :area %>
+</p>
+
+<p>
+<%= f.submit %>
+</p>
+
+<% end %>
