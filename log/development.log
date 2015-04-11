@@ -1,0 +1,12 @@
+
+
+Started GET "/" for ::1 at 2015-04-11 10:24:57 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/zeit/.gem/ruby/2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 100ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-04-11 10:32:47 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/zeit/.gem/ruby/2.2.0/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 0.0ms)

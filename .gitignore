@@ -18,3 +18,5 @@ web/tmp
 
 web/.idea/
 web/atlassian-ide-plugin.xml
+.idea
+.idea/*

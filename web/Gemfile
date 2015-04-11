@@ -51,3 +51,13 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-font-awesome'
 
 end
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano3-nginx', '~> 2.0'
+end
+
+# Web server
+
+gem 'puma'
