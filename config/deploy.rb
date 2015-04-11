@@ -49,15 +49,4 @@ namespace :deploy do
     end
   end
 
-  desc "Checkout subdirectory and delete all the other stuff"
-
-  task :checkout_subdir do
-    on roles :all do
-      execute :mv, "#{deploy_to}/current/web/ /tmp && rm -rf #{deploy_to}/current/* && mv /tmp/web/* #{deploy_to}/current/"
-    end
-  end
-
 end
-
-
-after "deploy:updating", "deploy:checkout_subdir"
