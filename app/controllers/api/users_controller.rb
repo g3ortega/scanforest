@@ -1,5 +1,5 @@
 module API
-  class UsersController < ApplicationController
+  class UsersController < ApiController
       skip_before_action :authenticate_with_token!, only: :create
       before_action :get_user, except: :create
 
