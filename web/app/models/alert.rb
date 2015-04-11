@@ -1,3 +1,3 @@
 class Alert < ActiveRecord::Base
-  has_many :alert_ranking
+  has_many :alert_rankings
 end
