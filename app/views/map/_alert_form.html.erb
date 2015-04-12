@@ -10,26 +10,29 @@
     <%= f.hidden_field :lon %>
     <%= f.hidden_field :lat %>
     <p>
-      <%= f.label :magnitude %><br>
+      <%= f.label :magnitude, "Severity (1-10)" %><br>
       <%= f.text_field :magnitude %>
     </p>
 
     <div id="reasons">
-      <%= f.label :description, :Razones %><br>
+      <%= f.label :description, "Reasons" %><br>
       <%= f.text_area "description[reason1]", size: '25x2' %><br>
     </div>
 
-    <a href="#" onclick="addReason()">Agregar otra razón</a>
+    <a onclick="addReason()">Add another reason</a>
 
     <p>
       <%= f.label :area %><br>
       <%= f.text_field :area %>
     </p>
 
-    <%= f.file_field :image %>
+    <p>
+      <%= f.label :image, "Upload a photo" %><br>
+      <%= f.file_field :image %>
+    </p>
 
     <p>
-      <%= f.submit 'Enviar alerta', class: 'btn btn-primary' %>
+      <%= f.submit 'Send alert', class: 'btn btn-primary' %>
     </p>
 
 <% end %>
