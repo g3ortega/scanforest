@@ -19,13 +19,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= image_tag 'scanforest-logo.png', height: '54', width: '237', alt: 'ScanForest' %></a>
+      <a class="navbar-brand" href="<%= root_path %>"><%= image_tag 'scanforest-logo.png', height: '54', width: '237', alt: 'ScanForest' %></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li class="active"><%= link_to 'Home <span class="sr-only">(current)</span>'.html_safe, root_path %></li>
         <li><%= link_to 'Map', map_path %></li>
         <li><%= link_to 'Countries', countries_path %></li>
 
