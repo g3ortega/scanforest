@@ -42,6 +42,9 @@ gem 'cancancan'
 #active_model_serializers for restful api
 gem 'active_model_serializers'
 
+# for photo uploads
+gem "paperclip", "~> 4.2"
+
 group :development, :test do
   gem 'annotate'
 
@@ -52,7 +55,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.3.4'
 end
 
 
@@ -74,3 +77,5 @@ gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'font-awesome-sass', '~> 4.3.0'
 
+# HStore access data
+gem 'hstore_accessor'

@@ -1,6 +1,6 @@
 module API
   class UsersController < API::ApiController
-      skip_before_action :authenticate_with_token!, only: :create
+      skip_before_action :authenticate_with_token!, only: [:show, :create]
       load_and_authorize_resource
 
       def show

@@ -13,4 +13,7 @@
 
 class AlertImage < ActiveRecord::Base
   belongs_to :alert
+  has_attached_file :uploaded_image
+  validates_attachment_content_type :uploaded_image,
+    content_type: [ "image/jpg", "image/jpeg", "image/png", "image/gif"]
 end

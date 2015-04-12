@@ -17,8 +17,13 @@
 #  updated_at             :datetime
 #  auth_token             :string
 #  role                   :string
-#  message                :boolean          default(FALSE)
 #  cell_phone             :string
+#  message                :boolean          default(FALSE)
+#  first_name             :string
+#  last_name              :string
+#  provider               :string
+#  uid                    :string
+#  config                 :hstore
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

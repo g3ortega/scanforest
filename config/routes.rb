@@ -3,24 +3,30 @@ Rails.application.routes.draw do
   devise_for :users
   resources :alerts
 
-  get 'map/index'
+  root 'pages#index'
 
+  get 'dashboard/:iso' => 'dashboard#country'
+  get 'countries' => 'pages#countries'
+  get 'map' => 'map#index'
 
   namespace :api, defaults: {format: :json}  do
     with_options :except => [:edit, :new] do |option|
-      resources :users, :only => [:show, :update, :create, :destroy], :shallow => true do
-        option.resources :alerts
+      resources :users, :only => [:show, :update, :create, :destroy] do
+        option.resources :alerts , :shallow => true do
+          option.resources :rankings, :only => [:show, :update, :create, :destroy]
+          option.resources :images, :only => [:show, :update, :create, :destroy]
+        end
       end
+      resources :alerts, :only => [:index, :show, :update, :create, :destroy]
     end
+    resources :sessions, :only => [:create, :destroy]
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'map#index'
 
-  get 'dashboard/:iso' => 'dashboard#country'
-  get 'index' => 'pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
