@@ -16,7 +16,7 @@ $(document).ready(function() {
     var locats =[]
     var alertcircle;
     <% @alerts.each do |alert| %>
-    locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
+    locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
     <%end%>
 
     function setMarkers(map, locations) {
