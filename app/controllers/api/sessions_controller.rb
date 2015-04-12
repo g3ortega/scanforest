@@ -10,7 +10,7 @@ class SessionsController < API::ApiController
       sign_in user, store: false
       user.generate_auth_token!
       user.save
-      render json: user, status: :ok, location: [:api, user]
+      render json: {token: user.auth_token}, status: :ok, location: [:api, user]
     else
       render json: { errors: "Invalid email or password" }, status: :unauthorized
     end

@@ -1,9 +1,10 @@
 module API
   class AlertsController < API::ApiController
       load_and_authorize_resource
+      skip_before_action :authenticate_with_token!, only: [:index, :show, :create]
 
       def index
-        render json: current_user.alerts, status: :ok
+        render json: Alert.all, status: :ok
       end
 
       def show
