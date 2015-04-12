@@ -45,6 +45,9 @@ gem 'active_model_serializers'
 # for photo uploads
 gem "paperclip", "~> 4.2"
 
+# for forest death graph
+gem "highcharts-rails", "~> 3.0.0"
+
 group :development, :test do
   gem 'annotate'
 
@@ -56,12 +59,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.3.4'
-end
-
-
-source 'https://rails-assets.org' do
-  #gem 'rails-assets-bootstrap'
-  gem 'rails-assets-font-awesome'
 end
 
 group :development do
@@ -79,3 +76,10 @@ gem 'font-awesome-sass', '~> 4.3.0'
 
 # HStore access data
 gem 'hstore_accessor'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'httparty'
+gem 'iso_country_codes'

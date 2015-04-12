@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="country">
 	<div role="tabpanel">
 
@@ -19,5 +20,91 @@
 		</div>
 
 	</div>
+=======
+<style>
+#banner {
+	color: #ffffff;
+}
+h1.ptitle {
+	color: #76c949;
+	font-size: 130%;
+}
+#banner>#col1 {
+    width:400px;
+    float:left;
+    padding:5px 15px 5px 100px;
+}
+#banner>#col2 {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+#banner>#col3 {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+</style>
+
+    <script type="text/javascript">
+        $(function() {
+            $('#treegraph').highcharts({
+			chart: {
+				type: 'pie',
+				plotBorderWidth: 0,
+				margin: 0,
+				width: 200,
+				height: 200,
+				backgroundColor: 'rgba(0,0,0,0)',
+			},
+            title: { text: null },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    shadow: false
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+                }
+            },
+            series: [{
+                name: 'Years',
+                data: [["2014",6],["2013",4],["2012",7]],
+                size: '100%',
+                innerSize: '90%',
+                dataLabels: {
+                    enabled: false
+                }
+            }]
+            });
+        });
+    </script>
+
+<div id="banner">
+
+<div id="col1">
+<h1 class="ptitle">TREE COVER (2000)</h1>
+<font size="500%">8</font> MHa
+<h1 class="ptitle">PERCENT TREE COVER (2000)</h1>
+<font size="500%">66</font> %
+</div>
+
+<div id="col2">
+<h1 class="ptitle">TREE COVER LOSS (2013)</h1>
+<div id="treegraph"></div>
+<h1 class="ptitle">TREE COVER GAIN (2001 - 2012)</h1>
+<font size="300%">5,513 Ha</font>
+</div>
+
+<div id="col3">
+<h1 class="ptitle">Nicaragua</h1>
+</div>
+>>>>>>> 10351eafd200f0836e60c3f75457bbecda17aa1d
 
 </div>

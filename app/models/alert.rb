@@ -12,14 +12,17 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  country_id  :integer
 #
 
 require 'twilio-ruby'
 
 class Alert < ActiveRecord::Base
   belongs_to :user
+  belongs_to :country
   has_many :alert_rankings
   has_many :alert_images
+
   after_create :send_messages_to_technicians
   
   protected
