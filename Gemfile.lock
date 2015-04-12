@@ -47,6 +47,7 @@ GEM
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
+    cancancan (1.10.1)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -184,6 +185,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   byebug
+  cancancan
   capistrano
   capistrano3-nginx (~> 2.0)
   capistrano3-puma

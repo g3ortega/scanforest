@@ -11,11 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411192754) do
+ActiveRecord::Schema.define(version: 20150411232635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "alert_images", force: :cascade do |t|
+    t.integer  "alert_id"
+    t.string   "image_file_name"
+    t.float    "image_file_size"
+    t.string   "path_image"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "alert_images", ["alert_id"], name: "index_alert_images_on_alert_id", using: :btree
+
+  create_table "alert_rankings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "alert_id"
+    t.boolean  "ranking"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "alerts", force: :cascade do |t|
     t.float    "lat"
@@ -42,10 +61,12 @@ ActiveRecord::Schema.define(version: 20150411192754) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "auth_token"
+    t.string   "role"
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "alert_images", "alerts"
 end
