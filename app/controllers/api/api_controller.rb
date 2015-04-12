@@ -12,5 +12,8 @@ module API
 
     include Authenticable
 
+    def default_serializer_options
+      {root: false}
+    end
   end
 end

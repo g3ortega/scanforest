@@ -9,7 +9,7 @@ module API
 
       def create
         if @user.save
-          render json: @user, status: :created, location: [:api, @user]
+          render json: {token: @user.auth_token}, status: :created
         else
           render json: @user.errors, status: :unprocessable_entity
         end
@@ -25,7 +25,7 @@ module API
 
       def destroy
         @user.destroy
-        head 204
+        head :no_content
       end
 
       def user_params
