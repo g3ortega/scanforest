@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   protected
 
   def set_role
-    self.role = "guest" if self.role.nil?
+    self.role = "regular" if self.role.nil?
   end
 
 end

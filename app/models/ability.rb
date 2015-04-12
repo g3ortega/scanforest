@@ -5,12 +5,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
+
+      #Global abilities
+      can :read, :all
+
       if user.admin?
         can :manage, :all
 
       elsif user.regular?
-        #Global abilities
-        can [:read, :create], :all
         #Abilities on User
         can :update, User do |editing_user|
            editing_user == user
@@ -28,7 +30,9 @@ class Ability
         can [:update, :destroy], AlertRanking do |alert_ranking|
           alert_ranking.user == user
         end
-
+      elsif user.guest?
+        #Ability to create user
+        can :create, User
       end
   end
 end
