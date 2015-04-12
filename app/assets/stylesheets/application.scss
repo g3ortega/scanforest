@@ -243,6 +243,44 @@ body * {
 }
 
 
+// Country Profile 
+
+#country .nav-tabs {
+  border-bottom: 1px solid #ddd;
+  border-bottom: none;
+  background: #bdcfb4;
+}
+#country .nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: #26452D;
+  padding: 20px 38px;
+  display: inline-block;
+}
+#country .nav > li > a:focus,
+#country .nav > li > a:hover {
+  text-decoration: none;
+  background-color: #6d9654;
+  color: #fff;
+}
+#country .nav-tabs > li {
+  float: left;
+  margin-bottom: 0px;
+}
+#country .nav-tabs > li.active > a,
+#country .nav-tabs > li.active > a:focus,
+#country .nav-tabs > li.active > a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1a2a10;
+}
+#country .tab-pane {
+  background-color: #1a2a10;
+  padding: 30px;
+}
+
 #footer {
   margin: 30px 0 0 0;
   background: #1a2a10;
