@@ -13,6 +13,6 @@ class AlertsController < ApplicationController
 
 private
   def alert_params
-    params.require(:alert).permit(:lat, :lon, :magnitude, :area)
+    params.require(:alert).permit(:lat, :lon, :magnitude, :area, :address, :description, :image)
   end
 end

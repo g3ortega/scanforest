@@ -15,4 +15,5 @@
 //= require highcharts
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require locationpicker.jquery
 //= require_tree .

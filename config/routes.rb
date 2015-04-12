@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'countries' => 'pages#countries'
-  get 'countries/:iso' => 'dashboard#country'
+  get 'countries/:iso' => 'dashboard#country', as: 'country'
   get 'map' => 'map#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
