@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get 'map/index'
 
-
   namespace :api, defaults: {format: :json}  do
     with_options :except => [:edit, :new] do |option|
       resources :users, :only => [:show, :update, :create, :destroy], :shallow => true do
@@ -26,7 +25,8 @@ Rails.application.routes.draw do
   root 'map#index'
 
   get 'dashboard/:iso' => 'dashboard#country'
-  get 'index' => 'pages#index'
+  get 'index' => 'pages#indecx'
+  get 'countries' => 'pages#countries'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
