@@ -1,6 +1,6 @@
 <div id="banner"></div>
 
-<h1>Alerta nueva</h1>
+<h1>New alert</h1>
 
 <script type='text/javascript'>
 var addReasonIdx = 2;
@@ -33,18 +33,21 @@ function addReason(){
 </p>
 
 <div id="reasons">
-<%= f.label :description, :Razones %><br>
+<%= f.label :description, "Reasons" %><br>
 <%= f.text_area "description[reason1]", size: '25x2' %><br>
 </div>
 
-<a href="#" onclick="addReason()">Agregar otra razón</a>
+<a onclick="addReason()">Add another reason</a>
 
 <p>
 <%= f.label :area %><br>
 <%= f.text_field :area %>
 </p>
 
+<p>
+<%= f.label :image, "Upload a photo" %><br>
 <%= f.file_field :image %>
+</p>
 
 <p>
 <%= f.submit %>
