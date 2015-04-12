@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  resources :alerts
-
   root 'pages#index'
 
-  get 'dashboard/:iso' => 'dashboard#country'
   get 'countries' => 'pages#countries'
+  get 'countries/:iso' => 'dashboard#country'
   get 'map' => 'map#index'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  resources :alerts
 
   namespace :api, defaults: {format: :json}  do
     with_options :except => [:edit, :new] do |option|

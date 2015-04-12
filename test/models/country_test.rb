@@ -1,23 +1,17 @@
 # == Schema Information
 #
-# Table name: alerts
+# Table name: countries
 #
 #  id          :integer          not null, primary key
-#  lat         :float
-#  lon         :float
-#  magnitude   :integer
-#  description :hstore
-#  area        :float
-#  created     :time
+#  name        :string
+#  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :integer
-#  country_id  :integer
 #
 
 require 'test_helper'
 
-class AlertTest < ActiveSupport::TestCase
+class CountryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
