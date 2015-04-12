@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
   before_create :generate_auth_token!, :set_role
   validates :auth_token, uniqueness: true
 
+  attr_accessor :user_type
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
