@@ -16,303 +16,303 @@
  */
 
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "font-awesome-sprockets";
- @import "font-awesome";
+//@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
- @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
- body * {
-  font-family: 'Roboto', sans-serif;
-}
-/* MIXINS */
-/* FIM MIXINS*/
-a {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-}
-.navbar-default {
-  background-color: #FFF;
-  border-color: #e7e7e7;
-  margin-bottom: 0;
-}
-.navbar-brand {
-  float: left;
-  height: auto;
-  padding: 12px 15px;
-  font-size: 18px;
-  line-height: 20px;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:focus,
-.navbar-default .navbar-nav > .active > a:hover {
-  color: #6d9654;
-  background-color: #FFFFFF;
-  border-bottom: 3px inset transparent;
-}
-.navbar-default .navbar-nav > li > a,
-.navbar-nav > li > a {
-  padding: 29px 30px;
-  color: #ababab;
-}
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:hover {
-  color: #6d9654;
-  border-bottom: 3px inset #6d9654;
-}
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:focus,
-.navbar-default .navbar-nav > .open > a:hover {
-  color: #6d9654;
-  background-color: #F0F0F0;
-}
-.dropdown-menu > li > a:focus,
-.dropdown-menu > li > a:hover {
-  color: #FFFFFF;
-  text-decoration: none;
-  background-color: #6d9654;
-}
-.navbar span.user_icon {
-  padding: 0 26px 0 0;
-}
-.navbar .fa-user {
-  font-size: 25px;
-  vertical-align: middle;
-  /* margin: 0 10px 0 0; */
-  padding: 0;
-  position: absolute;
-}
-ul.dropdown-menu {
-  min-width: 100%;
-}
-.caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 10px;
-  vertical-align: middle;
-  border-top: 4px dashed;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
-.navbar-toggle {
-  position: relative;
-  float: right;
-  padding: 9px 10px;
-  margin-top: 22px;
-  margin-right: 15px;
-  margin-bottom: 8px;
-  background-color: transparent;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover {
-  background-color: #6d9654;
-}
-.navbar-default .navbar-toggle:focus .icon-bar,
-.navbar-default .navbar-toggle:hover .icon-bar {
-  background-color: #fff;
-}
-#banner {
-  max-height: 291px;
-  background: image_url('banner001.jpg');
-  background-size: cover;
-  height: 232px;
-}
-#main {
-  max-width: 960px;
-}
-h1 {
-  font-weight: 100;
-  color: #6d9654;
-}
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+            body * {
+              font-family: 'Roboto', sans-serif;
+            }
+            /* MIXINS */
+            /* FIM MIXINS*/
+            a {
+              -webkit-transition: all 0.3s ease;
+              -moz-transition: all 0.3s ease;
+              -ms-transition: all 0.3s ease;
+              -o-transition: all 0.3s ease;
+            }
+            .navbar-default {
+              background-color: #FFF;
+              border-color: #e7e7e7;
+              margin-bottom: 0;
+            }
+            .navbar-brand {
+              float: left;
+              height: auto;
+              padding: 12px 15px;
+              font-size: 18px;
+              line-height: 20px;
+            }
+            .navbar-default .navbar-nav > .active > a,
+            .navbar-default .navbar-nav > .active > a:focus,
+            .navbar-default .navbar-nav > .active > a:hover {
+              color: #6d9654;
+              background-color: #FFFFFF;
+              border-bottom: 3px inset transparent;
+            }
+            .navbar-default .navbar-nav > li > a,
+            .navbar-nav > li > a {
+              padding: 29px 30px;
+              color: #ababab;
+            }
+            .navbar-default .navbar-nav > li > a:focus,
+            .navbar-default .navbar-nav > li > a:hover {
+              color: #6d9654;
+              border-bottom: 3px inset #6d9654;
+            }
+            .navbar-default .navbar-nav > .open > a,
+            .navbar-default .navbar-nav > .open > a:focus,
+            .navbar-default .navbar-nav > .open > a:hover {
+              color: #6d9654;
+              background-color: #F0F0F0;
+            }
+            .dropdown-menu > li > a:focus,
+            .dropdown-menu > li > a:hover {
+              color: #FFFFFF;
+              text-decoration: none;
+              background-color: #6d9654;
+            }
+            .navbar span.user_icon {
+              padding: 0 26px 0 0;
+            }
+            .navbar .fa-user {
+              font-size: 25px;
+              vertical-align: middle;
+              /* margin: 0 10px 0 0; */
+              padding: 0;
+              position: absolute;
+            }
+            ul.dropdown-menu {
+              min-width: 100%;
+            }
+            .caret {
+              display: inline-block;
+              width: 0;
+              height: 0;
+              margin-left: 10px;
+              vertical-align: middle;
+              border-top: 4px dashed;
+              border-right: 4px solid transparent;
+              border-left: 4px solid transparent;
+            }
+            .navbar-toggle {
+              position: relative;
+              float: right;
+              padding: 9px 10px;
+              margin-top: 22px;
+              margin-right: 15px;
+              margin-bottom: 8px;
+              background-color: transparent;
+              background-image: none;
+              border: 1px solid transparent;
+              border-radius: 4px;
+            }
+            .navbar-default .navbar-toggle:focus,
+            .navbar-default .navbar-toggle:hover {
+              background-color: #6d9654;
+            }
+            .navbar-default .navbar-toggle:focus .icon-bar,
+            .navbar-default .navbar-toggle:hover .icon-bar {
+              background-color: #fff;
+            }
+            #banner {
+              max-height: 291px;
+              background: image_url('banner001.jpg');
+              background-size: cover;
+              height: 232px;
+            }
+            #main {
+              max-width: 960px;
+            }
+            h1 {
+              font-weight: 100;
+              color: #6d9654;
+            }
 
-#map{ position: relative;
-  padding-bottom: 50%;
-  margin-bottom: -30px;
-  height: 0;
-  overflow: hidden;
-  min-height: 367px;
+            #view{ position: relative;
+                   padding-bottom: 50%;
+                   margin-bottom: -30px;
+                   height: 0;
+                   overflow: hidden;
+                   min-height: 367px;
 
-  iframe { position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-  }
+                   #map { position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100% !important;
+                          height: 100% !important;
+                        }
 
-  #map {
-    position: relative;
-    padding-bottom: 50%;
-    margin-bottom: -30px;
-    height: 0;
-    overflow: hidden;
-    min-height: 367px;
-  }
-  #map iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-  }
-  #map .controllers {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    padding: 0 23%;
-    bottom: 24px;
-  }
-  #map .controllers .add_report_div a {
-    padding: 18px 0 17px 20px;
-  }
-  #map .controllers .add_report_div a:hover,
-  #map .controllers .add_report_div a:active,
-  #map .controllers .add_report_div a:focus {
-    text-decoration: none;
-    background: #fff;
-    padding: 18px 0 17px 20px;
-    border-radius: 100px;
-  }
-  #map .controllers .add_report_div a:hover .text,
-  #map .controllers .add_report_div a:active .text,
-  #map .controllers .add_report_div a:focus .text {
-    display: inline-block;
-    color: #6d9654;
-  }
-  #map .controllers .add_report_div .button {
-    font-weight: 100;
-    color: #fff;
-    background-color: #6d9654;
-    padding: 16px 20px;
-    font-size: 16px;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-  }
-  #map .controllers .add_report_div .text {
-    color: transparent;
-    padding: 0 10px 0 0;
-  }
-  #map .controllers #MySemiModal {
-    margin: 0 auto 27px;
-    padding: 20px;
-    background: #fff;
-  /* position: initial; */
-  max-width: 420px;
-  display: none;
-  border-radius: 12px;
-}
-#map .controllers #MySemiModal .title {
-  padding: 0 0 11px;
-  font-size: 26px;
-  color: #6d9654;
-}
-#map .controllers #MySemiModal a.ball {
-  display: inline-block;
-  text-decoration: none;
-  background-color: #6d9654;
-  width: 100px;
-  height: 102px;
-  -webkit-border-radius: 300px;
-  -moz-border-radius: 300px;
-  border-radius: 300px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  font-weight: 100;
-}
-#map .controllers #MySemiModal a.ball i {
-  width: 60px;
-  height: 60px;
-  display: block;
-  margin: 4px auto 0;
-  background-size: contain;
-  background-position: center center;
-}
-#map .controllers #MySemiModal a.ball .text {
-  color: #fff;
-}
-#map .controllers #MySemiModal a.ball:hover {
-  background-color: #1a2a10;
-}
-#map .controllers #MySemiModal .fire i {
-  background-image: url('../images/icon-fuego.png');
-}
-#map .controllers #MySemiModal .tree i {
-  background-image: url('../images/icon-tree.png');
-}
-#map .controllers #MySemiModal .bee i {
-  background-image: url('../images/icon-bee.png');
-}
+                   #view {
+                     position: relative;
+                     padding-bottom: 50%;
+                     margin-bottom: -30px;
+                     height: 0;
+                     overflow: hidden;
+                     min-height: 367px;
+                   }
+                   #view #map {
+                     position: absolute;
+                     top: 0;
+                     left: 0;
+                     width: 100% !important;
+                     height: 100% !important;
+                   }
+                   #view .controllers {
+                     position: absolute;
+                     text-align: center;
+                     width: 100%;
+                     padding: 0 23%;
+                     bottom: 24px;
+                   }
+                   #view .controllers .add_report_div a {
+                     padding: 18px 0 17px 20px;
+                   }
+                   #view .controllers .add_report_div a:hover,
+                   #view .controllers .add_report_div a:active,
+                   #view .controllers .add_report_div a:focus {
+                     text-decoration: none;
+                     background: #fff;
+                     padding: 18px 0 17px 20px;
+                     border-radius: 100px;
+                   }
+                   #view .controllers .add_report_div a:hover .text,
+                   #view .controllers .add_report_div a:active .text,
+                   #view .controllers .add_report_div a:focus .text {
+                     display: inline-block;
+                     color: #6d9654;
+                   }
+                   #view .controllers .add_report_div .button {
+                     font-weight: 100;
+                     color: #fff;
+                     background-color: #6d9654;
+                     padding: 16px 20px;
+                     font-size: 16px;
+                     -webkit-border-radius: 100%;
+                     -moz-border-radius: 100%;
+                     border-radius: 100%;
+                     -moz-background-clip: padding;
+                     -webkit-background-clip: padding-box;
+                     background-clip: padding-box;
+                   }
+                   #view .controllers .add_report_div .text {
+                     color: transparent;
+                     padding: 0 10px 0 0;
+                   }
+                   #view .controllers #MySemiModal {
+                     margin: 0 auto 27px;
+                     padding: 20px;
+                     background: #fff;
+                     /* position: initial; */
+                     max-width: 420px;
+                     display: none;
+                     border-radius: 12px;
+                   }
+                   #view .controllers #MySemiModal .title {
+                     padding: 0 0 11px;
+                     font-size: 26px;
+                     color: #6d9654;
+                   }
+                   #view .controllers #MySemiModal a.ball {
+                     display: inline-block;
+                     text-decoration: none;
+                     background-color: #6d9654;
+                     width: 100px;
+                     height: 102px;
+                     -webkit-border-radius: 300px;
+                     -moz-border-radius: 300px;
+                     border-radius: 300px;
+                     -moz-background-clip: padding;
+                     -webkit-background-clip: padding-box;
+                     background-clip: padding-box;
+                     font-weight: 100;
+                   }
+                   #view .controllers #MySemiModal a.ball i {
+                     width: 60px;
+                     height: 60px;
+                     display: block;
+                     margin: 4px auto 0;
+                     background-size: contain;
+                     background-position: center center;
+                   }
+                   #view .controllers #MySemiModal a.ball .text {
+                     color: #fff;
+                   }
+                   #view .controllers #MySemiModal a.ball:hover {
+                     background-color: #1a2a10;
+                   }
+                   #view .controllers #MySemiModal .fire i {
+                     background-image: url('../images/icon-fuego.png');
+                   }
+                   #view .controllers #MySemiModal .tree i {
+                     background-image: url('../images/icon-tree.png');
+                   }
+                   #view .controllers #MySemiModal .bee i {
+                     background-image: url('../images/icon-bee.png');
+                   }
+                 }
 
 
-
-#footer {
-  margin: 30px 0 0 0;
-  background: #1a2a10;
-  color: #fff;
-  padding: 30px 0;
-}
-#footer #wrap {
-  max-width: 960px;
-}
-#footer .title {
-  font-weight: 100;
-  font-size: 16px;
-}
-#footer ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  line-height: 2;
-}
-#footer ul li a {
-  color: #6d9654;
-  display: block;
-  font-weight: 300;
-}
-#footer ul li a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-#footer #divlogo_footer {
-  border-right: 1px solid #3A543F;
-  text-align: center;
-}
-/* Small devices */
-@media (max-width: 768px) {
-  .navbar-default .navbar-nav > li > a,
-  .navbar-nav > li > a,
-  .navbar-default .navbar-nav > .active > a {
-    border-bottom: 1px solid #e7e7e7;
-    padding: 10px;
-  }
-  .navbar-default .navbar-nav > li > a:focus,
-  .navbar-default .navbar-nav > li > a:hover,
-  .navbar-default .navbar-nav > .active > a:focus,
-  .navbar-default .navbar-nav > .active > a:hover {
-    color: #6d9654;
-    border-bottom: 1px solid #e7e7e7;
-    padding: 10px 10px 10px 30px;
-  }
-  #footer ul {
-    margin: 0 0 30px;
-  }
-  #footer .title {
-    margin: 28px 0 0 0;
-  }
-  #footer #divlogo_footer {
-    border-right: none;
-  }
-  #footer #logo-footer {
-    border-bottom: 1px solid #233C11;
-  }
-}
+            #footer {
+              margin: 30px 0 0 0;
+              background: #1a2a10;
+              color: #fff;
+              padding: 30px 0;
+            }
+            #footer #wrap {
+              max-width: 960px;
+            }
+            #footer .title {
+              font-weight: 100;
+              font-size: 16px;
+            }
+            #footer ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              line-height: 2;
+            }
+            #footer ul li a {
+              color: #6d9654;
+              display: block;
+              font-weight: 300;
+            }
+            #footer ul li a:hover {
+              color: #fff;
+              text-decoration: none;
+            }
+            #footer #divlogo_footer {
+              border-right: 1px solid #3A543F;
+              text-align: center;
+            }
+            /* Small devices */
+            @media (max-width: 768px) {
+              .navbar-default .navbar-nav > li > a,
+              .navbar-nav > li > a,
+              .navbar-default .navbar-nav > .active > a {
+                border-bottom: 1px solid #e7e7e7;
+                padding: 10px;
+              }
+              .navbar-default .navbar-nav > li > a:focus,
+              .navbar-default .navbar-nav > li > a:hover,
+              .navbar-default .navbar-nav > .active > a:focus,
+              .navbar-default .navbar-nav > .active > a:hover {
+                color: #6d9654;
+                border-bottom: 1px solid #e7e7e7;
+                padding: 10px 10px 10px 30px;
+              }
+              #footer ul {
+                margin: 0 0 30px;
+              }
+              #footer .title {
+                margin: 28px 0 0 0;
+              }
+              #footer #divlogo_footer {
+                border-right: none;
+              }
+              #footer #logo-footer {
+                border-bottom: 1px solid #233C11;
+              }
+            }

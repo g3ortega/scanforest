@@ -1,5 +1,55 @@
 <script><%= render 'map.js' %></script>
 
-<h1>Map#index</h1>
-<div id="map" style="height: 400px; width: 400px;"></div>
+<div id="view">
+    <div id="map" style="height: 600px; width: 1100px;"></div>
 
+    <div class="controllers">
+	<!-- MySemiModal -->
+	<div id="MySemiModal">
+	    <div class="title">Report Type</div>
+	    <div class="report_options">
+		<a href="#" class="ball fire"><i></i><span class="text">Incendio</span></a>
+		<a href="#" class="ball tree"><i></i><span class="text">Tala</span></a>
+		<a href="#" class="ball bee"><i></i><span class="text">Plaga</span></a>
+
+	    </div>
+	</div>
+	<div class="add_report_div">
+	    <a href="#" title="add report" id="add_report">
+		<span class="text"> Add Report</span>
+		<span class="button">+</span>
+	    </a>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+		<div class="modal-content">
+		    <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		    </div>
+		    <div class="modal-body">
+			...
+		    </div>
+		    <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		    </div>
+		</div>
+	    </div>
+	</div>
+
+	<script>
+	 jQuery(document).ready(function($) {
+	     $('#add_report').click(function(event) {
+		 $('#MySemiModal').toggle(300);
+	     });
+
+	 });
+	</script>
+
+
+
+    </div>
+</div>
