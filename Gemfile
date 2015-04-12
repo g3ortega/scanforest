@@ -45,6 +45,9 @@ gem 'active_model_serializers'
 # for photo uploads
 gem "paperclip", "~> 4.2"
 
+# for forest death graph
+gem "highcharts-rails", "~> 3.0.0"
+
 group :development, :test do
   gem 'annotate'
 
