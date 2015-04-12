@@ -16,7 +16,7 @@ $(document).ready(function() {
     var locats =[]
     var alertcircle;
     <% @alerts.each do |alert| %>
-    locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>']);
+    locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
     <%end%>
 
     function setMarkers(map, locations) {
@@ -30,16 +30,16 @@ $(document).ready(function() {
             var location = locats[i];
             var myLatLng = new google.maps.LatLng(location[1], location[2]);
             var circe = {
-                fillColor: '#4ae3ff',//'RoyalBlue',
-                strokeColor: '#FF3333',//"DarkBlue",
+                fillColor: 'RoyalBlue',
+                strokeColor: 'DarkBlue',
                 strokeOpacity: 0.3,
                 strokeWeight: 2.3,
-                fillOpacity: 0.03,
+                fillOpacity: 0.3,
                 center:  myLatLng,
-                radius: 100,
+                radius: location[3] ,
                 map:map
             };
-            alertcircle= new google.maps.Circle(circe);
+            alertcircle = new google.maps.Circle(circe);
 
         }
     }
