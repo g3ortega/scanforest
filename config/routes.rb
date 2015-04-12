@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :alerts
 
-  get 'map/index'
+  root 'pages#index'
+
+  get 'dashboard/:iso' => 'dashboard#country'
+  get 'countries' => 'pages#countries'
+  get 'map' => 'map#index'
 
   namespace :api, defaults: {format: :json}  do
     with_options :except => [:edit, :new] do |option|
@@ -22,11 +26,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'map#index'
 
-  get 'dashboard/:iso' => 'dashboard#country'
-  get 'index' => 'pages#indecx'
-  get 'countries' => 'pages#countries'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
