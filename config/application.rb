@@ -25,5 +25,10 @@ module Scanforest
     config.to_prepare do
       DeviseController.respond_to :json
     end
+    
+    Twilio.configure do |config|
+      config.account_sid = 'account_sid'
+      config.auth_token = 'auth_token'
+    end
   end
 end

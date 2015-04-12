@@ -17,6 +17,8 @@
 #  updated_at             :datetime
 #  auth_token             :string
 #  role                   :string
+#  cell_phone             :string
+#  message                :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -52,6 +54,10 @@ class User < ActiveRecord::Base
   def guest?
     self.role == "guest" || self.role.nil?
   end
+  
+  scope :technicians_messages, -> {
+    where(:role => 'technician').where(:message => true)
+  }
 
   protected
 

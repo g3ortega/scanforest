@@ -17,6 +17,8 @@
 #  updated_at             :datetime
 #  auth_token             :string
 #  role                   :string
+#  message                :boolean          default(FALSE)
+#  cell_phone             :string
 #
 
 require 'test_helper'

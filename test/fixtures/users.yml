@@ -17,6 +17,8 @@
 #  updated_at             :datetime
 #  auth_token             :string
 #  role                   :string
+#  message                :boolean          default(FALSE)
+#  cell_phone             :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
