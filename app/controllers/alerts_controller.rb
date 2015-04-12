@@ -8,7 +8,7 @@ class AlertsController < ApplicationController
     @alert = Alert.new(alert_params.merge(description: params[:alert][:description]))
     @alert.save
     @alert.alert_images.create!(uploaded_image: params[:alert][:image])
-    redirect_to @alert
+    redirect_to map_path
   end
 
 private

@@ -10,63 +10,57 @@ $(document).ready(function() {
                                         style: google.maps.ZoomControlStyle.LARGE
                                     },
                                     streetViewControl: false });
-        if(navigator.geolocation) {
-            browserSupportFlag = true;
-            navigator.geolocation.getCurrentPosition(function(position) {
-                initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                map.setCenter(initialLocation);
-            }, function() {
-                handleNoGeolocation(browserSupportFlag);
-            });
-        }
-        // Browser doesn't support Geolocation
-        else {
-            browserSupportFlag = false;
-            handleNoGeolocation(browserSupportFlag);
-        }
+        setMarkers(map, locats);
+    }
 
-        function handleNoGeolocation(errorFlag) {
-            if (errorFlag == true) {
-                alert("Geolocation service failed.");
-                initialLocation = newyork;
-            } else {
-                alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-                initialLocation = siberia;
-            }
-        }
-            setMarkers(map, locats);
-        }
+    var locats =[]
+    var alertcircle;
+    <% @alerts.each do |alert| %>
+    locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
+    <%end%>
 
-        var locats =[]
-        var alertcircle;
-        <% @alerts.each do |alert| %>
-        locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
-        <%end%>
+    function setMarkers(map, locations) {
 
-        function setMarkers(map, locations) {
-
-            var shape = {
-                coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-                type: 'poly'
+        var shape = {
+            coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+            type: 'poly'
+        };
+        var markert=[];
+        for (var i = 0; i < locats.length; i++) {
+            var location = locats[i];
+            var myLatLng = new google.maps.LatLng(location[1], location[2]);
+            var circe = {
+                fillColor: 'RoyalBlue',
+                strokeColor: 'DarkBlue',
+                strokeOpacity: 0.3,
+                strokeWeight: 2.3,
+                fillOpacity: 0.3,
+                center:  myLatLng,
+                radius: location[3] ,
+                map:map
             };
-            var markert=[];
-            for (var i = 0; i < locats.length; i++) {
-                var location = locats[i];
-                var myLatLng = new google.maps.LatLng(location[1], location[2]);
-                var circe = {
-                    fillColor: 'RoyalBlue',
-                    strokeColor: 'DarkBlue',
-                    strokeOpacity: 0.3,
-                    strokeWeight: 2.3,
-                    fillOpacity: 0.3,
-                    center:  myLatLng,
-                    radius: location[3] ,
-                    map:map
-                };
-                alertcircle = new google.maps.Circle(circe);
+            var image = {
+                url: "<%= asset_path('maakab.png') %>",
+                // This marker is 20 pixels wide by 32 pixels tall.
+                size: new google.maps.Size(22, 34),
+                // The origin for this image is 0,0.
+                origin: new google.maps.Point(0,0),
 
-            }
+                anchor: new google.maps.Point(10, 10)
+            };
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                icon: image,
+                shape: shape,
+                title: location[0],
+                zIndex: location[3]
+            });
+            markert.push(marker);
+            alertcircle = new google.maps.Circle(circe);
+
         }
+    }
 
-        google.maps.event.addDomListener(window, 'load', initialize);
-    });
+    google.maps.event.addDomListener(window, 'load', initialize);
+});
