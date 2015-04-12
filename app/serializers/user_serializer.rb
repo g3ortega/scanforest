@@ -17,8 +17,11 @@
 #  updated_at             :datetime
 #  auth_token             :string
 #  role                   :string
+#  cell_phone             :string
+#  message                :boolean          default(FALSE)
 #
 
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :role, :created_at, :updated_at, :last_sign_in_at
+  has_many :alerts
 end

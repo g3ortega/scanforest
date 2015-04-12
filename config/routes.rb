@@ -11,8 +11,14 @@ Rails.application.routes.draw do
       resources :users, :only => [:show, :update, :create, :destroy], :shallow => true do
         option.resources :alerts
       end
+      resources :alerts, :only => [:index, :show, :update, :create, :destroy]
+      resources :alert_rankings, :only => [:show, :update, :create, :destroy]
+      resources :alerts_images, :only => [:show, :update, :create, :destroy]
+
     end
+    resources :sessions, :only => [:create, :destroy]
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

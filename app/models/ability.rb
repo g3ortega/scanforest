@@ -12,27 +12,30 @@ class Ability
       if user.admin?
         can :manage, :all
 
-      elsif user.regular?
+      elsif user.regular? || user.technician?
         #Abilities on User
         can :update, User do |editing_user|
            editing_user == user
         end
         #Abilities on Alert
+        can :create, Alert
         can [:update, :destroy], Alert do |alert|
-          alert.try(user) == user
+          alert.user == user
         end
         #Abilities on AlertImage
+        can :create, AlertImage
         can [:update, :destroy], AlertImage do |alert_image|
-          alert_image.alert.try(user) == user
+          alert_image.alert.user == user
         end
 
         #Abilities on AlertRanking
+        can :create, AlertRanking
         can [:update, :destroy], AlertRanking do |alert_ranking|
           alert_ranking.user == user
         end
       elsif user.guest?
         #Ability to create user
-        can :create, User
+        can [:create, :read], User
       end
   end
 end

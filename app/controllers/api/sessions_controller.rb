@@ -1,4 +1,6 @@
-class SessionController < API::ApiController
+module API
+class SessionsController < API::ApiController
+  skip_before_action :authenticate_with_token!, only: :create
   def create
     user_password = params[:session][:password]
     user_email = params[:session][:email]
@@ -20,4 +22,5 @@ class SessionController < API::ApiController
     user.save
     head 204
   end
+end
 end

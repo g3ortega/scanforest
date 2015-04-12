@@ -29,9 +29,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :alert_rankings
-
-  has_many :alert_images
+  has_many :alerts
 
   def generate_auth_token!
     begin

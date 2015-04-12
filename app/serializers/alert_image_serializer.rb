@@ -12,5 +12,5 @@
 #
 
 class AlertImageSerializer < ActiveModel::Serializer
-  attributes :id, :image_file_name, :image_file_size, :path_image, :created_at, :updated_at
+  attributes :id, :image_file_name, :path_image, :created_at, :updated_at
 end
