@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412163909) do
+ActiveRecord::Schema.define(version: 20150412165629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,12 @@ ActiveRecord::Schema.define(version: 20150412163909) do
 
   create_table "alert_images", force: :cascade do |t|
     t.integer  "alert_id"
-    t.string   "image_file_name"
-    t.float    "image_file_size"
-    t.string   "path_image"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "uploaded_image_file_name"
+    t.string   "uploaded_image_content_type"
+    t.integer  "uploaded_image_file_size"
+    t.datetime "uploaded_image_updated_at"
   end
 
   add_index "alert_images", ["alert_id"], name: "index_alert_images_on_alert_id", using: :btree

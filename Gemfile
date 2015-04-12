@@ -42,6 +42,9 @@ gem 'cancancan'
 #active_model_serializers for restful api
 gem 'active_model_serializers'
 
+# for photo uploads
+gem "paperclip", "~> 4.2"
+
 group :development, :test do
   gem 'annotate'
 
