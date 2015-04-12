@@ -1,0 +1,24 @@
+{
+  "name": "Andy",
+  "version": "1.0.4",
+  "homepage": "http://gillesbertaux.com/andy",
+  "authors": [
+    "Gilles Bertaux <gillesbertauxdorgeville@gmail.com>"
+  ],
+  "description": "open-source collection of useful sass mixins",
+  "main": "andy.scss",
+  "keywords": [
+    "sass"
+  ],
+  "license": "MIT",
+  "_release": "1.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.4",
+    "commit": "5834305b2d1a4dcb7af148df04b2e5ed6736fbd3"
+  },
+  "_source": "git://github.com/gillesbertaux/andy.git",
+  "_target": "~1.0.4",
+  "_originalSource": "andy",
+  "_direct": true
+}
