@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   root 'map#index'
 
   get 'dashboard/:iso' => 'dashboard#country'
+  get 'index' => 'pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

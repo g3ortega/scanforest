@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scanforest</title>
+  <title>ScanForest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,8 +9,72 @@
    <script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js' type='text/javascript'></script>
 </head>
 <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="images/scanforest-logo.png" height="54" width="237" alt="SCANFOREST"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Map</a></li>
+        <li><a href="#">Country Profile</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="user_icon">&nbsp;<i class="fa fa-user"></i></span> Neil Armstrong<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Another action</a></li>
+
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div id="banner">
+
+</div>
 
 <%= yield %>
 
+<div id="footer">
+  <div id="wrap" class="container-fluid">
+    <div id="divlogo_footer" class="col-md-6 col-xs-12"><img id="logo-footer" src="images/logo-white-footer.png" height="81" width="314" alt="ScanForest"></div>
+    <div class="col-md-6 col-xs-12">
+      <div class="col-md-6"><p class="title">Space Challenge 2015</p>
+        <ul>
+          <li><a href="#">Spaceappschallenge</a></li>
+          <li><a href="#">Forest Monitor Mapping</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6"><p class="title">About Us</p>
+        <ul>
+          <li><a href="#">Members Team</a></li>
+          <li><a href="#">Skills</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
+
