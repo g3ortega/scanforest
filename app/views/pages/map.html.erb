@@ -1,0 +1,53 @@
+<div id="map">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d124838.77246075461!2d-86.2584606!3d12.097659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sni!4v1428854221515" frameborder="0" style="border:0"></iframe>
+
+	<div class="controllers">
+		<!-- MySemiModal -->
+		<div id="MySemiModal">
+			<div class="title">Report Type</div>
+			<div class="report_options">
+				<a href="#" class="ball fire"><i></i><span class="text">Incendio</span></a>
+				<a href="#" class="ball tree"><i></i><span class="text">Tala</span></a>
+				<a href="#" class="ball bee"><i></i><span class="text">Plaga</span></a>
+				
+			</div>
+		</div>
+		<div class="add_report_div">
+			<a href="#" title="add report" id="add_report">
+				<span class="text"> Add Report</span>
+				<span class="button">+</span>
+			</a>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					</div>
+					<div class="modal-body">
+						...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			jQuery(document).ready(function($) {
+				$('#add_report').click(function(event) {
+					$('#MySemiModal').toggle(300);
+				});
+
+			});
+		</script>
+		
+
+
+	</div>
+</div>

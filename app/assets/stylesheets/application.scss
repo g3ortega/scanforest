@@ -16,13 +16,13 @@
  */
 
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
-body * {
+ @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+ body * {
   font-family: 'Roboto', sans-serif;
 }
 /* MIXINS */
@@ -130,6 +130,131 @@ h1 {
   font-weight: 100;
   color: #6d9654;
 }
+
+#map{ position: relative;
+  padding-bottom: 50%;
+  margin-bottom: -30px;
+  height: 0;
+  overflow: hidden;
+  min-height: 367px;
+
+  iframe { position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #map {
+    position: relative;
+    padding-bottom: 50%;
+    margin-bottom: -30px;
+    height: 0;
+    overflow: hidden;
+    min-height: 367px;
+  }
+  #map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  #map .controllers {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding: 0 23%;
+    bottom: 24px;
+  }
+  #map .controllers .add_report_div a {
+    padding: 18px 0 17px 20px;
+  }
+  #map .controllers .add_report_div a:hover,
+  #map .controllers .add_report_div a:active,
+  #map .controllers .add_report_div a:focus {
+    text-decoration: none;
+    background: #fff;
+    padding: 18px 0 17px 20px;
+    border-radius: 100px;
+  }
+  #map .controllers .add_report_div a:hover .text,
+  #map .controllers .add_report_div a:active .text,
+  #map .controllers .add_report_div a:focus .text {
+    display: inline-block;
+    color: #6d9654;
+  }
+  #map .controllers .add_report_div .button {
+    font-weight: 100;
+    color: #fff;
+    background-color: #6d9654;
+    padding: 16px 20px;
+    font-size: 16px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  #map .controllers .add_report_div .text {
+    color: transparent;
+    padding: 0 10px 0 0;
+  }
+  #map .controllers #MySemiModal {
+    margin: 0 auto 27px;
+    padding: 20px;
+    background: #fff;
+  /* position: initial; */
+  max-width: 420px;
+  display: none;
+  border-radius: 12px;
+}
+#map .controllers #MySemiModal .title {
+  padding: 0 0 11px;
+  font-size: 26px;
+  color: #6d9654;
+}
+#map .controllers #MySemiModal a.ball {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #6d9654;
+  width: 100px;
+  height: 102px;
+  -webkit-border-radius: 300px;
+  -moz-border-radius: 300px;
+  border-radius: 300px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  font-weight: 100;
+}
+#map .controllers #MySemiModal a.ball i {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 4px auto 0;
+  background-size: contain;
+  background-position: center center;
+}
+#map .controllers #MySemiModal a.ball .text {
+  color: #fff;
+}
+#map .controllers #MySemiModal a.ball:hover {
+  background-color: #1a2a10;
+}
+#map .controllers #MySemiModal .fire i {
+  background-image: url('../images/icon-fuego.png');
+}
+#map .controllers #MySemiModal .tree i {
+  background-image: url('../images/icon-tree.png');
+}
+#map .controllers #MySemiModal .bee i {
+  background-image: url('../images/icon-bee.png');
+}
+
+
+
 #footer {
   margin: 30px 0 0 0;
   background: #1a2a10;
