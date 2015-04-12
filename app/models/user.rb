@@ -19,6 +19,11 @@
 #  role                   :string
 #  cell_phone             :string
 #  message                :boolean          default(FALSE)
+#  first_name             :string
+#  last_name              :string
+#  provider               :string
+#  uid                    :string
+#  config                 :hstore
 #
 
 class User < ActiveRecord::Base

@@ -74,3 +74,5 @@ gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'font-awesome-sass', '~> 4.3.0'
 
+# HStore access data
+gem 'hstore_accessor'
