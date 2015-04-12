@@ -2,13 +2,14 @@
 #
 # Table name: alert_images
 #
-#  id              :integer          not null, primary key
-#  alert_id        :integer
-#  image_file_name :string
-#  image_file_size :float
-#  path_image      :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                          :integer          not null, primary key
+#  alert_id                    :integer
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  uploaded_image_file_name    :string
+#  uploaded_image_content_type :string
+#  uploaded_image_file_size    :integer
+#  uploaded_image_updated_at   :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

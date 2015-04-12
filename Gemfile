@@ -58,12 +58,6 @@ group :development, :test do
   gem 'spring', '~> 1.3.4'
 end
 
-
-source 'https://rails-assets.org' do
-  #gem 'rails-assets-bootstrap'
-  gem 'rails-assets-font-awesome'
-end
-
 group :development do
   gem 'capistrano'
   gem 'capistrano3-puma'
@@ -79,3 +73,10 @@ gem 'font-awesome-sass', '~> 4.3.0'
 
 # HStore access data
 gem 'hstore_accessor'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'httparty'
+gem 'iso_country_codes'
