@@ -22,9 +22,9 @@
 @import "font-awesome";
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
-            body * {
-              font-family: 'Roboto', sans-serif;
-            }
+body * {
+  font-family: 'Roboto', sans-serif;
+}
             /* MIXINS */
             /* FIM MIXINS*/
             a {
@@ -131,162 +131,150 @@
               color: #6d9654;
             }
 
-            #view{ position: relative;
-                   padding-bottom: 50%;
-                   margin-bottom: -30px;
-                   height: 0;
-                   overflow: hidden;
-                   min-height: 367px;
-
-                   #map { position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100% !important;
-                          height: 100% !important;
-                        }
-
-                   #view {
-                     position: relative;
-                     padding-bottom: 50%;
-                     margin-bottom: -30px;
-                     height: 0;
-                     overflow: hidden;
-                     min-height: 367px;
-                   }
-                   #view #map {
-                     position: absolute;
-                     top: 0;
-                     left: 0;
-                     width: 100% !important;
-                     height: 100% !important;
-                   }
-                   #view .controllers {
-                     position: absolute;
-                     text-align: center;
-                     width: 100%;
-                     padding: 0 23%;
-                     bottom: 24px;
-                   }
-                   #view .controllers .add_report_div a {
-                     padding: 18px 0 17px 20px;
-                   }
-                   #view .controllers .add_report_div a:hover,
-                   #view .controllers .add_report_div a:active,
-                   #view .controllers .add_report_div a:focus {
-                     text-decoration: none;
-                     background: #fff;
-                     padding: 18px 0 17px 20px;
-                     border-radius: 100px;
-                   }
-                   #view .controllers .add_report_div a:hover .text,
-                   #view .controllers .add_report_div a:active .text,
-                   #view .controllers .add_report_div a:focus .text {
-                     display: inline-block;
-                     color: #6d9654;
-                   }
-                   #view .controllers .add_report_div .button {
-                     font-weight: 100;
-                     color: #fff;
-                     background-color: #6d9654;
-                     padding: 16px 20px;
-                     font-size: 16px;
-                     -webkit-border-radius: 100%;
-                     -moz-border-radius: 100%;
-                     border-radius: 100%;
-                     -moz-background-clip: padding;
-                     -webkit-background-clip: padding-box;
-                     background-clip: padding-box;
-                   }
-                   #view .controllers .add_report_div .text {
-                     color: transparent;
-                     padding: 0 10px 0 0;
-                   }
-                   #view .controllers #MySemiModal {
-                     margin: 0 auto 27px;
-                     padding: 20px;
-                     background: #fff;
-                     /* position: initial; */
-                     max-width: 420px;
-                     display: none;
-                     border-radius: 12px;
-                   }
-                   #view .controllers #MySemiModal .title {
-                     padding: 0 0 11px;
-                     font-size: 26px;
-                     color: #6d9654;
-                   }
-                   #view .controllers #MySemiModal a.ball {
-                     display: inline-block;
-                     text-decoration: none;
-                     background-color: #6d9654;
-                     width: 100px;
-                     height: 102px;
-                     -webkit-border-radius: 300px;
-                     -moz-border-radius: 300px;
-                     border-radius: 300px;
-                     -moz-background-clip: padding;
-                     -webkit-background-clip: padding-box;
-                     background-clip: padding-box;
-                     font-weight: 100;
-                   }
-                   #view .controllers #MySemiModal a.ball i {
-                     width: 60px;
-                     height: 60px;
-                     display: block;
-                     margin: 4px auto 0;
-                     background-size: contain;
-                     background-position: center center;
-                   }
-                   #view .controllers #MySemiModal a.ball .text {
-                     color: #fff;
-                   }
-                   #view .controllers #MySemiModal a.ball:hover {
-                     background-color: #1a2a10;
-                   }
-                   #view .controllers #MySemiModal .fire i {
-                     background-image: url('../images/icon-fuego.png');
-                   }
-                   #view .controllers #MySemiModal .tree i {
-                     background-image: url('../images/icon-tree.png');
-                   }
-                   #view .controllers #MySemiModal .bee i {
-                     background-image: url('../images/icon-bee.png');
-                   }
-                 }
-
-
-            #footer {
-              margin: 30px 0 0 0;
-              background: #1a2a10;
-              color: #fff;
-              padding: 30px 0;
+            #map {
+              position: relative;
+              padding-bottom: 50%;
+              margin-bottom: -30px;
+              height: 0;
+              overflow: hidden;
+              min-height: 367px;
             }
-            #footer #wrap {
-              max-width: 960px;
+            #map iframe {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100% !important;
+              height: 100% !important;
             }
-            #footer .title {
-              font-weight: 100;
-              font-size: 16px;
+            #view {
+              position: relative;
             }
-            #footer ul {
-              list-style: none;
-              margin: 0;
-              padding: 0;
-              line-height: 2;
-            }
-            #footer ul li a {
-              color: #6d9654;
-              display: block;
-              font-weight: 300;
-            }
-            #footer ul li a:hover {
-              color: #fff;
-              text-decoration: none;
-            }
-            #footer #divlogo_footer {
-              border-right: 1px solid #3A543F;
+            .controllers {
+              position: absolute;
               text-align: center;
+              width: 100%;
+              padding: 0px 23% 77px;
+              bottom: 0;
             }
+            .controllers .add_report_div a {
+              padding: 18px 0 17px 20px;
+            }
+            .controllers .add_report_div a:hover,
+            .controllers .add_report_div a:active,
+            .controllers .add_report_div a:focus {
+              text-decoration: none;
+              background: #fff;
+              padding: 18px 0 17px 20px;
+              border-radius: 100px;
+            }
+            .controllers .add_report_div a:hover .text,
+            .controllers .add_report_div a:active .text,
+            .controllers .add_report_div a:focus .text {
+              display: inline-block;
+              color: #6d9654;
+            }
+            .controllers .add_report_div .button {
+              font-weight: 100;
+              color: #fff;
+              background-color: #6d9654;
+              padding: 16px 20px;
+              font-size: 16px;
+              -webkit-border-radius: 100%;
+              -moz-border-radius: 100%;
+              border-radius: 100%;
+              -moz-background-clip: padding;
+              -webkit-background-clip: padding-box;
+              background-clip: padding-box;
+            }
+            .controllers .add_report_div .text {
+              color: transparent;
+              padding: 0 10px 0 0;
+            }
+            .controllers #MySemiModal {
+              margin: 0 auto 27px;
+              padding: 20px;
+              background: #fff;
+  /* position: initial; */
+  max-width: 420px;
+  display: none;
+  border-radius: 12px;
+}
+.controllers #MySemiModal .title {
+  padding: 0 0 11px;
+  font-size: 26px;
+  color: #6d9654;
+}
+.controllers #MySemiModal a.ball {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #6d9654;
+  width: 100px;
+  height: 102px;
+  -webkit-border-radius: 300px;
+  -moz-border-radius: 300px;
+  border-radius: 300px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  font-weight: 100;
+}
+.controllers #MySemiModal a.ball i {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: 4px auto 0;
+  background-size: contain;
+  background-position: center center;
+}
+.controllers #MySemiModal a.ball .text {
+  color: #fff;
+}
+.controllers #MySemiModal a.ball:hover {
+  background-color: #1a2a10;
+}
+.controllers #MySemiModal .fire i {
+  background-image: url('../images/icon-fuego.png');
+}
+.controllers #MySemiModal .tree i {
+  background-image: url('../images/icon-tree.png');
+}
+.controllers #MySemiModal .bee i {
+  background-image: url('../images/icon-bee.png');
+}
+
+
+#footer {
+  margin: 30px 0 0 0;
+  background: #1a2a10;
+  color: #fff;
+  padding: 30px 0;
+}
+#footer #wrap {
+  max-width: 960px;
+}
+#footer .title {
+  font-weight: 100;
+  font-size: 16px;
+}
+#footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 2;
+}
+#footer ul li a {
+  color: #6d9654;
+  display: block;
+  font-weight: 300;
+}
+#footer ul li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+#footer #divlogo_footer {
+  border-right: 1px solid #3A543F;
+  text-align: center;
+}
             /* Small devices */
             @media (max-width: 768px) {
               .navbar-default .navbar-nav > li > a,
