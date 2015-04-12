@@ -15,6 +15,7 @@ db/*.sqlite3-journal
 log/*
 !log/.keep
 tmp
+tmp/*
 
 .idea/
 atlassian-ide-plugin.xml

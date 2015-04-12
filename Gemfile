@@ -59,7 +59,6 @@ end
 source 'https://rails-assets.org' do
   #gem 'rails-assets-bootstrap'
   gem 'rails-assets-font-awesome'
-
 end
 
 group :development do
