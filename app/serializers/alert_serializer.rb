@@ -18,6 +18,4 @@
 class AlertSerializer < ActiveModel::Serializer
   attributes :id, :lat, :lon, :magnitude, :description, :area, :created, :created_at, :updated_at
 
-  has_many :alert_images
-  has_many :alert_rankings
 end
