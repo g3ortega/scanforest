@@ -10,39 +10,63 @@ $(document).ready(function() {
                                         style: google.maps.ZoomControlStyle.LARGE
                                     },
                                     streetViewControl: false });
-        setMarkers(map, locats);
-    }
-
-    var locats =[]
-    var alertcircle;
-    <% @alerts.each do |alert| %>
-    locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
-    <%end%>
-
-    function setMarkers(map, locations) {
-
-        var shape = {
-            coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-            type: 'poly'
-        };
-        var markert=[];
-        for (var i = 0; i < locats.length; i++) {
-            var location = locats[i];
-            var myLatLng = new google.maps.LatLng(location[1], location[2]);
-            var circe = {
-                fillColor: 'RoyalBlue',
-                strokeColor: 'DarkBlue',
-                strokeOpacity: 0.3,
-                strokeWeight: 2.3,
-                fillOpacity: 0.3,
-                center:  myLatLng,
-                radius: location[3] ,
-                map:map
-            };
-            alertcircle = new google.maps.Circle(circe);
-
+        if(navigator.geolocation) {
+            browserSupportFlag = true;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                map.setCenter(initialLocation);
+            }, function() {
+                handleNoGeolocation(browserSupportFlag);
+            });
         }
-    }
+        // Browser doesn't support Geolocation
+        else {
+            browserSupportFlag = false;
+            handleNoGeolocation(browserSupportFlag);
+        }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
-});
+        function handleNoGeolocation(errorFlag) {
+            if (errorFlag == true) {
+                alert("Geolocation service failed.");
+                initialLocation = newyork;
+            } else {
+                alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+                initialLocation = siberia;
+            }
+        }
+            setMarkers(map, locats);
+        }
+
+        var locats =[]
+        var alertcircle;
+        <% @alerts.each do |alert| %>
+        locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
+        <%end%>
+
+        function setMarkers(map, locations) {
+
+            var shape = {
+                coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+                type: 'poly'
+            };
+            var markert=[];
+            for (var i = 0; i < locats.length; i++) {
+                var location = locats[i];
+                var myLatLng = new google.maps.LatLng(location[1], location[2]);
+                var circe = {
+                    fillColor: 'RoyalBlue',
+                    strokeColor: 'DarkBlue',
+                    strokeOpacity: 0.3,
+                    strokeWeight: 2.3,
+                    fillOpacity: 0.3,
+                    center:  myLatLng,
+                    radius: location[3] ,
+                    map:map
+                };
+                alertcircle = new google.maps.Circle(circe);
+
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    });
