@@ -70,3 +70,5 @@ end
 # Web server
 
 gem 'puma'
+
+gem 'bootstrap-sass', '~> 3.3.4'
