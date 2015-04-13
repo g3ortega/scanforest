@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412175429) do
+ActiveRecord::Schema.define(version: 20150413142237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150412175429) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "alert_rankings", ["user_id", "alert_id"], name: "index_alert_rankings_on_user_id_and_alert_id", unique: true, using: :btree
 
   create_table "alerts", force: :cascade do |t|
     t.float    "lat"

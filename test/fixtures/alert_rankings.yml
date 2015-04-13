@@ -20,4 +20,4 @@ one:
 two:
   user_id: 1
   alert_id: 1
-  ranking: false
+  ranking: true

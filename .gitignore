@@ -21,3 +21,6 @@ tmp/*
 atlassian-ide-plugin.xml
 .idea
 .idea/*
+
+# Ignore spring files
+/spring
