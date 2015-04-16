@@ -78,8 +78,8 @@ gem 'font-awesome-sass', '~> 4.3.0'
 gem 'hstore_accessor'
 
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-github', '~> 1.1.2'
 
 gem 'httparty'
 gem 'iso_country_codes'

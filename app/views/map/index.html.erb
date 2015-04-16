@@ -6,6 +6,9 @@
     <div class="controllers">
 	<!-- MySemiModal -->
 	<div id="MySemiModal">
+<% if current_user.nil? %>
+You must <%= link_to 'sign in', new_user_session_path %> before creating alerts.
+<% else %>
 	    <div class="title">Report Type</div>
 	    <div class="report_options">
             <a href="#" class="ball fire" id="add_fire_button"><i></i><span class="text">Fire</span></a>
@@ -13,6 +16,7 @@
             <a href="#" class="ball bee" id="add_plague_button"><i></i><span class="text">Pest</span></a>
         </div>
       <p><a href="#" onClick="$('#MySemiModal').toggle(300);">Cancel</a></p>
+<% end %>
 	</div>
 	<div class="add_report_div">
 	    <a href="#" title="add report" id="add_report">

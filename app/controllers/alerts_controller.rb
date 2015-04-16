@@ -5,7 +5,7 @@ class AlertsController < ApplicationController
   def create
     # Strong parameters doesn't support hashes with unknown keys, so we handle
     # that separately
-    @alert = Alert.new(alert_params.merge(description: params[:alert][:description]))
+    @alert = Alert.new(alert_params.merge(description: params[:alert][:description], user_id: current_user.id))
     @alert.save!
     @alert.alert_images.create!(uploaded_image: params[:alert][:image])
     redirect_to map_path
