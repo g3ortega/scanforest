@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var map;
     var centre = new google.maps.LatLng(13.1864581,-85.9448642);
+    var colour = '#6d9654'
 
     function initialize() {
 	map = new google.maps.Map(document.getElementById('map'),
@@ -11,6 +12,35 @@ $(document).ready(function() {
                                     },
                                     streetViewControl: false });
         setMarkers(map, locats);
+        infowindow = new google.maps.InfoWindow({
+            content: "loading..."
+        });
+        // Try W3C Geolocation
+        if(navigator.geolocation) {
+            browserSupportFlag = true;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                map.setCenter(initialLocation);
+            }, function() {
+                handleNoGeolocation(browserSupportFlag);
+            });
+        }
+        // Browser doesn't support Geolocation
+        else {
+            browserSupportFlag = false;
+            handleNoGeolocation(browserSupportFlag);
+        }
+
+        function handleNoGeolocation(errorFlag) {
+            if (errorFlag == true) {
+                alert("Geolocation service failed.");
+                initialLocation = newyork;
+            } else {
+                alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+                initialLocation = siberia;
+            }
+            map.setCenter(initialLocation);
+        }
     }
 
     var locats =[]
@@ -30,9 +60,8 @@ $(document).ready(function() {
             var location = locats[i];
             var myLatLng = new google.maps.LatLng(location[1], location[2]);
             var circe = {
-                fillColor: 'RoyalBlue',
-                strokeColor: 'DarkBlue',
-                strokeOpacity: 0.3,
+                fillColor: colour,
+                strokeOpacity: 0,
                 strokeWeight: 2.3,
                 fillOpacity: 0.3,
                 center:  myLatLng,
@@ -40,7 +69,7 @@ $(document).ready(function() {
                 map:map
             };
             var image = {
-                url: "<%= asset_path('maakab.png') %>",
+                url: "<%= asset_path('maakad.png') %>",
                 // This marker is 20 pixels wide by 32 pixels tall.
                 size: new google.maps.Size(22, 34),
                 // The origin for this image is 0,0.
