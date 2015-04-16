@@ -14,6 +14,10 @@
           <i class="fa fa-user"></i> General User
         </label>
         <label>
+          <input type="radio" name="user[role]" id="inputChoice[]" value="technician" checked="checked">
+          <i class="fa fa-user"></i> Technician User
+        </label>
+        <label>
           <input type="radio" name="user[role]" id="inputChoice[]" value="admin">
           <i class="fa fa-bar-chart"></i> Admin User
         </label>
@@ -36,7 +40,6 @@
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>
     </div>
-
     <div class="field">
       <%= f.label :password %>
       <% if @validatable %>
