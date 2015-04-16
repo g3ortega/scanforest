@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :users, :only => [:show, :update, :create, :destroy] do
         option.resources :alerts , :shallow => true do
           option.resources :alert_rankings, :path => "rankings"
-          option.resources :images, :only => [:show, :update, :create, :destroy]
+          option.resources :alert_images, :only => [:create], :path => "images"
         end
       end
       resources :alerts, :only => [:index, :show, :update, :create, :destroy]

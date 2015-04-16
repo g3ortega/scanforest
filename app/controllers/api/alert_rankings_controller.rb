@@ -16,7 +16,7 @@ module API
             alert_ranking = @alert.alert_rankings.new(ranking_params)
             alert_ranking.user_id = current_user.id
             if alert_ranking.save
-                render json: alert_ranking, status: :created, location: [:api, @alert_ranking]
+                render json: alert_ranking, status: :created, location: [:api, alert_ranking]
             else
                 render json: alert_ranking.errors, status: :unprocessable_entity
             end
