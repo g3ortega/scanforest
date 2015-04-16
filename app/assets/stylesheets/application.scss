@@ -20,6 +20,14 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import  "css3-mixins";
+
+
+$color1:#65a740;
+$color2:#5a8542;
+$color3:#6d9654;
+$light-gray:#ababab;
+$dark-green: #1a2a10;
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
 body * {
@@ -160,7 +168,7 @@ body * {
               text-align: center;
               width: 100%;
               padding: 0px 23% 77px;
-              bottom: 0;
+              bottom: 120px;
             }
             .controllers .add_report_div a {
               padding: 18px 0 17px 20px;
@@ -291,6 +299,8 @@ body * {
   background: #1a2a10;
   color: #fff;
   padding: 30px 0;
+  width: 100%;
+  bottom: 0;
 }
 #footer #wrap {
   max-width: 960px;
@@ -318,32 +328,78 @@ body * {
   border-right: 1px solid #3A543F;
   text-align: center;
 }
-            /* Small devices */
-            @media (max-width: 768px) {
-              .navbar-default .navbar-nav > li > a,
-              .navbar-nav > li > a,
-              .navbar-default .navbar-nav > .active > a {
-                border-bottom: 1px solid #e7e7e7;
-                padding: 10px;
-              }
-              .navbar-default .navbar-nav > li > a:focus,
-              .navbar-default .navbar-nav > li > a:hover,
-              .navbar-default .navbar-nav > .active > a:focus,
-              .navbar-default .navbar-nav > .active > a:hover {
-                color: #6d9654;
-                border-bottom: 1px solid #e7e7e7;
-                padding: 10px 10px 10px 30px;
-              }
-              #footer ul {
-                margin: 0 0 30px;
-              }
-              #footer .title {
-                margin: 28px 0 0 0;
-              }
-              #footer #divlogo_footer {
-                border-right: none;
-              }
-              #footer #logo-footer {
-                border-bottom: 1px solid #233C11;
-              }
-            }
+
+
+// login  box
+.login-box {  background: #FFF;
+  padding: 30px;
+  margin: 20px auto;
+  width: 410px;
+  @include border-radius (4px);
+  @include  box-shadow (0,0,8px, rgba(0,0,0,.4));
+
+  form {  margin: 0px 0 20px;}
+
+  h2 { color:$color3; margin-top: 0; }
+  .field {  margin: 15px 0 0;}
+  input[type='text'], input[type="email"],input[type='password'] {
+    width: 100%;
+    @include border-radius(4px);
+    
+    border: 1px solid #ccc;
+    padding: 5px; outline: none;
+    &:focus{ @include  box-shadow (0,0,8px, $color3); border-color: $color1; color:$color3;}
+  } 
+  a {color:$color3; 
+    &:focus, &:hover, &:active{ }
+  }
+
+  input[type='submit'] {
+
+    background: $color3;
+    color: #fff;
+    border: none;
+    padding: 13px 45px;
+    width: 100%;
+    @include border-radius(4px);
+    @include transition (all 0.4s ease);
+
+    &:hover, &:focus{ background-color: $color1;}
+  }
+
+  .actions{  margin: 10px 0;}
+
+}
+
+
+
+/* Small devices */
+@media (max-width: 768px) {
+  .navbar-default .navbar-nav > li > a,
+  .navbar-nav > li > a,
+  .navbar-default .navbar-nav > .active > a {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px;
+  }
+  .navbar-default .navbar-nav > li > a:focus,
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus,
+  .navbar-default .navbar-nav > .active > a:hover {
+    color: #6d9654;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px 10px 10px 30px;
+  }
+  .controllers { bottom: 0;}
+  #footer ul {
+    margin: 0 0 30px;
+  }
+  #footer .title {
+    margin: 28px 0 0 0;
+  }
+  #footer #divlogo_footer {
+    border-right: none;
+  }
+  #footer #logo-footer {
+    border-bottom: 1px solid #233C11;
+  }
+}
