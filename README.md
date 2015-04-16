@@ -1,6 +1,6 @@
 # ScanForest
 
-_ One of the major challenges facing our generation is the conservation of forests; deforestation is shrinking reserves which once served as lungs for our cities and countries. Our team therefore decided to accept the challenge of FMN, to provide a technological solution to identify and track causes of deforestation._   
+> One of the major challenges facing our generation is the conservation of forests; deforestation is shrinking reserves which once served as lungs for our cities and countries. Our team therefore decided to accept the challenge of FMN, to provide a technological solution to identify and track causes of deforestation.
 
  **This project is solving the **[Forest Monitor Mapping](/challenge/forest-monitor-mapping/) challenge.
 
