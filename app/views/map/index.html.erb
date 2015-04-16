@@ -10,7 +10,7 @@
 	    <div class="report_options">
             <a href="#" class="ball fire" id="add_fire_button"><i></i><span class="text">Fire</span></a>
             <a href="#" class="ball tree" id="add_deforestation_button"><i></i><span class="text">Logging</span></a>
-            <a href="#" class="ball bee" id="add_plague_button"><i></i><span class="text">Infestation</span></a>
+            <a href="#" class="ball bee" id="add_plague_button"><i></i><span class="text">Pest</span></a>
         </div>
       <p><a href="#" onClick="$('#MySemiModal').toggle(300);">Cancel</a></p>
 	</div>
@@ -28,7 +28,7 @@
 	     });
 
          $('#add_fire_button').click(function(event) {
-             $('#MySemiModal .title').html('Report a fire');
+             $('#MySemiModal .title').html('Report a Fire');
              $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
 //             $('#modalSendAlert').toggle(300);
          });
@@ -39,7 +39,7 @@
          });
 
          $('#add_plague_button').click(function(event) {
-             $('#MySemiModal .title').html('Report infestation');
+             $('#MySemiModal .title').html('Report a Pest');
              $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
          });
 
