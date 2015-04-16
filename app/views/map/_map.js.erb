@@ -1,7 +1,8 @@
 $(document).ready(function() {
     var map;
     var centre = new google.maps.LatLng(13.1864581,-85.9448642);
-    var colour = '#6d9654'
+    var colour = '#6d9654';
+    var ib = new InfoBox();
 
     function initialize() {
 	map = new google.maps.Map(document.getElementById('map'),
@@ -12,6 +13,7 @@ $(document).ready(function() {
                                     },
                                     streetViewControl: false });
         setMarkers(map, locats);
+        google.maps.event.addListener(map, "click", function() { ib.close() });
         infowindow = new google.maps.InfoWindow({
             content: "loading..."
         });
@@ -46,48 +48,83 @@ $(document).ready(function() {
     var locats =[]
     var alertcircle;
     <% @alerts.each do |alert| %>
-    locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>]);
+    locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>, <%= alert.alert_type %>]);
     <%end%>
 
-    function setMarkers(map, locations) {
-
-        var shape = {
+    function createMarker(location,map){
+               var shape = {
             coords: [1, 1, 1, 20, 18, 20, 18 , 1],
             type: 'poly'
         };
-        var markert=[];
+        var myLatLng = new google.maps.LatLng(location[1], location[2]);
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            icon: image,
+            shape: shape,
+            title: location[0],
+            zIndex: location[3]
+        });
+        var circe = {
+            fillColor: colour,
+            strokeOpacity: 0,
+            strokeWeight: 2.3,
+            fillOpacity: 0.3,
+            center:  myLatLng,
+            radius: location[3] ,
+            map:map
+        };
+        var image = {
+            url: "<%= asset_path('fire.png') %>",
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(22, 34),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+
+            anchor: new google.maps.Point(10, 10)
+        };
+
+        var boxText = document.createElement("div");
+        boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px;";
+        boxText.innerHTML = marker.title;
+
+        var myOptions = {
+            content: boxText
+            ,disableAutoPan: false
+            ,maxWidth: 0
+            ,pixelOffset: new google.maps.Size(-140, 0)
+                ,zIndex: null
+            ,boxStyle: {
+                background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.12/examples/tipbox.gif') no-repeat"
+                ,opacity: 0.75
+                ,width: "280px"
+            }
+            ,closeBoxMargin: "10px 2px 2px 2px"
+            ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+            ,infoBoxClearance: new google.maps.Size(1, 1)
+                ,isHidden: false
+            ,pane: "floatPane"
+            ,enableEventPropagation: false
+        };
+        // end example code for custom infobox
+       // var ib = new InfoBox(myOptions);
+
+        google.maps.event.addListener(marker, "click", function (e) {
+
+            //ib.close();
+            ib.setOptions(myOptions);
+            ib.open(map, this);
+        });
+        alertcircle = new google.maps.Circle(circe);
+        return marker;
+
+
+    }
+
+
+    function setMarkers(map, locations) {
         for (var i = 0; i < locats.length; i++) {
-            var location = locats[i];
-            var myLatLng = new google.maps.LatLng(location[1], location[2]);
-            var circe = {
-                fillColor: colour,
-                strokeOpacity: 0,
-                strokeWeight: 2.3,
-                fillOpacity: 0.3,
-                center:  myLatLng,
-                radius: location[3] ,
-                map:map
-            };
-            var image = {
-                url: "<%= asset_path('maakad.png') %>",
-                // This marker is 20 pixels wide by 32 pixels tall.
-                size: new google.maps.Size(22, 34),
-                // The origin for this image is 0,0.
-                origin: new google.maps.Point(0,0),
-
-                anchor: new google.maps.Point(10, 10)
-            };
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                icon: image,
-                shape: shape,
-                title: location[0],
-                zIndex: location[3]
-            });
-            markert.push(marker);
-            alertcircle = new google.maps.Circle(circe);
-
+            createMarker(locations[i],map);
         }
     }
 
