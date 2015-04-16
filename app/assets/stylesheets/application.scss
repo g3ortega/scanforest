@@ -373,7 +373,30 @@ body * {
     li {color: #c00;}
   }
 
-}
+  .choice {
+    input[type="radio"]{display: none}
+    i{
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+       /* width: 100%; */
+       font-size: 40px;
+     }
+     label { 
+      color: $color3;padding: 10px;   padding: 10px;
+      width: 130px;
+      text-align: center;
+      @include border-radius(4px);
+      height: 90px;
+      border: 1px solid;
+      vertical-align: top;
+      @include transition (all 0.4s ease);
+      &:hover { background:#E7F0EC;}
+    }
+    label.active {  background: $color3; color: #fff;}
+  }
+
+}// login-box
 
 
 

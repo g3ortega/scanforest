@@ -7,6 +7,21 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
+    <div class="field choice">
+      <div class="radio">
+        <label class="active">
+          <input type="radio" name="choice[]" id="inputChoice[]" value="normal_user" checked="checked">
+          <i class="fa fa-user"></i> General User
+        </label>
+        <label>
+          <input type="radio" name="choice[]" id="inputChoice[]" value="normal_user">
+          <i class="fa fa-bar-chart"></i> Admin User
+        </label>
+
+      </div>
+
+    </div>
+
     <div class="field">
       <%= f.label :first_name %><br />
       <%= f.text_field :first_name, autofocus: true %>
@@ -43,3 +58,19 @@
 
     <%= render "devise/shared/links" %>
   </div></div>
+
+  <script>
+    jQuery(document).ready(function($) {
+
+
+      $('.choice > .radio > label').click(function(event) {
+       $('.choice > .radio > label').removeClass('active');
+       $(this).addClass('active');
+     });
+    });
+    
+
+
+
+
+  </script>
