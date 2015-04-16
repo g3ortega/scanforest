@@ -28,9 +28,8 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Another action</a></li>
-
             <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %> </li>
           </ul>
         </li>
         <% else %>

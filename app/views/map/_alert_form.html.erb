@@ -1,5 +1,5 @@
 <%= form_for :alert, url: alerts_path, remote: true do |f| %>
-
+    <%= f.hidden_field :alert_type, value: type %>
     <p>
       <%= f.label :address, 'Reference' %>
       <%= f.text_field :address %>

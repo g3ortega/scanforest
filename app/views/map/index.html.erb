@@ -28,19 +28,19 @@
 	     });
 
          $('#add_fire_button').click(function(event) {
-             $('#MySemiModal .title').html('Report a Fire');
-             $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
+             $('#MySemiModal .title').html('Report a fire');
+             $('.report_options').html("<%= escape_javascript(render 'alert_form', type: 'fire') %>")
 //             $('#modalSendAlert').toggle(300);
          });
 
          $('#add_deforestation_button').click(function(event) {
              $('#MySemiModal .title').html('Report logging');
-             $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
+             $('.report_options').html("<%= escape_javascript(render 'alert_form', type: 'logging') %>")
          });
 
          $('#add_plague_button').click(function(event) {
-             $('#MySemiModal .title').html('Report a Pest');
-             $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
+             $('#MySemiModal .title').html('Report infestation');
+             $('.report_options').html("<%= escape_javascript(render 'alert_form', type: 'pest') %>")
          });
 
      });
