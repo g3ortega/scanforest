@@ -1,6 +1,6 @@
 module API
   class UsersController < API::ApiController
-      skip_before_action :authenticate_with_token!, only: [:show, :create]
+      skip_before_action :authenticate_with_token!, only: [:create]
       load_and_authorize_resource
 
       def show
@@ -29,7 +29,7 @@ module API
       end
 
       def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation, :role)
+        params.require(:user).permit(:email, :cell_phone, :message, :first_name, :last_name,:role, :password, :password_confirmation)
       end
 
       # def get_user
