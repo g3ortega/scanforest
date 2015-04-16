@@ -232,7 +232,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github, Rails.application.secrets.github_id, Rails.application.github_secret, scope: 'user,public_repo'
+  config.omniauth :github, Rails.application.secrets.github_id, Rails.application.secrets.github_secret, scope: 'user,public_repo'
   config.omniauth :google_oauth2, Rails.application.secrets.google_oauth_id, Rails.application.secrets.google_oauth_secret, { access_type: "offline", approval_prompt: "" }
 
   # ==> Warden configuration
