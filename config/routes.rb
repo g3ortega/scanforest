@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'countries' => 'pages#countries'
+  get 'team' => 'pages#team'
   get 'countries/:iso' => 'dashboard#country', as: 'country'
   get 'map' => 'map#index'
 
