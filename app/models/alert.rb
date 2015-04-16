@@ -13,6 +13,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  country_id  :integer
+#  type        :string
 #
 
 require 'twilio-ruby'
@@ -23,6 +24,12 @@ class Alert < ActiveRecord::Base
   has_many :alert_rankings
   has_many :alert_images
   attr_accessor :address
+
+  validates_presence_of :lat, :lon, :type, :magnitude, :user
+  validates :lat, inclusion: { in: (-90..90), message: "Invalid latitude value" }
+  validates :lon, inclusion: { in: (-180..180), message: "Invalid longitude value" }
+  validates :magnitude, inclusion: { in: (1..10), message: "Invalid magnitud value" }
+  validates :type, inclusion: { in: %w(logging fire pest), message: "Invalid alert type" }
 
   after_create :send_messages_to_technicians
 

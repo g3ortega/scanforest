@@ -29,6 +29,9 @@
 class User < ActiveRecord::Base
   before_create :generate_auth_token!, :set_role
   validates :auth_token, uniqueness: true
+  validates :role, presence: true,  inclusion: { in: %w(admin technician regular), message: "Invalid user role name" }
+  validates :first_name, :last_name, presence: true, length: { maximum: 100,
+                                                  too_long: "%{count} characters is the maximum allowed" }
 
   attr_accessor :user_type
 
@@ -93,7 +96,7 @@ class User < ActiveRecord::Base
   protected
 
   def set_role
-    self.role = "regular" if self.role.nil?
+    self.role ||= "regular"
   end
 
 end

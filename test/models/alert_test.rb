@@ -13,6 +13,7 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  country_id  :integer
+#  type        :string
 #
 
 require 'test_helper'
