@@ -52,9 +52,18 @@ $(document).ready(function() {
     <%end%>
 
     function createMarker(location,map){
-               var shape = {
+        var shape = {
             coords: [1, 1, 1, 20, 18, 20, 18 , 1],
             type: 'poly'
+        };
+        var image = {
+            url: "<%= asset_path('fire.png') %>",
+            // This marker is 20 pixels wide by 32 pixels tall.
+            size: new google.maps.Size(22, 34),
+            // The origin for this image is 0,0.
+            origin: new google.maps.Point(0,0),
+
+            anchor: new google.maps.Point(10, 10)
         };
         var myLatLng = new google.maps.LatLng(location[1], location[2]);
         var marker = new google.maps.Marker({
@@ -73,15 +82,6 @@ $(document).ready(function() {
             center:  myLatLng,
             radius: location[3] ,
             map:map
-        };
-        var image = {
-            url: "<%= asset_path('fire.png') %>",
-            // This marker is 20 pixels wide by 32 pixels tall.
-            size: new google.maps.Size(22, 34),
-            // The origin for this image is 0,0.
-            origin: new google.maps.Point(0,0),
-
-            anchor: new google.maps.Point(10, 10)
         };
 
         var boxText = document.createElement("div");
@@ -107,7 +107,7 @@ $(document).ready(function() {
             ,enableEventPropagation: false
         };
         // end example code for custom infobox
-       // var ib = new InfoBox(myOptions);
+        // var ib = new InfoBox(myOptions);
 
         google.maps.event.addListener(marker, "click", function (e) {
 

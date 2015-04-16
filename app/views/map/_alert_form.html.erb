@@ -1,63 +1,63 @@
 <%= form_for :alert, url: alerts_path, remote: true do |f| %>
     <%= f.hidden_field :alert_type, value: type %>
     <p>
-      <%= f.label :address, 'Reference' %>
-      <%= f.text_field :address %>
+        <%= f.label :address, 'Reference' %>
+        <%= f.text_field :address %>
     </p>
     <p>
-      <div id="map_picker" style="width: 350px; height: 150px;"></div>
+        <div id="map_picker" style="width: 350px; height: 150px;"></div>
     </p>
     <%= f.hidden_field :lon %>
     <%= f.hidden_field :lat %>
     <p>
-      <%= f.label :magnitude, "Severity (1-10)" %><br>
-      <%= f.text_field :magnitude %>
+        <%= f.label :magnitude, "Severity (1-10)" %><br>
+        <%= f.text_field :magnitude %>
     </p>
 
     <div id="reasons">
-      <%= f.label :description, "Reasons" %><br>
-      <%= f.text_area "description[reason1]", size: '25x2' %><br>
+        <%= f.label :description, "Reasons" %><br>
+        <%= f.text_area "description[reason1]", size: '25x2' %><br>
     </div>
 
     <a onclick="addReason()">Add another reason</a>
 
     <p>
-      <%= f.label :area %><br>
-      <%= f.text_field :area %>
+        <%= f.label :area %><br>
+        <%= f.text_field :area %>
     </p>
 
     <p>
-      <%= f.label :image, "Upload a photo" %><br>
-      <%= f.file_field :image %>
+        <%= f.label :image, "Upload a photo" %><br>
+        <%= f.file_field :image %>
     </p>
 
     <p>
-      <%= f.submit 'Send alert', class: 'btn btn-primary' %>
+        <%= f.submit 'Send alert', class: 'btn btn-primary' %>
     </p>
 
 <% end %>
 
 <script type='text/javascript'>
-    var addReasonIdx = 2;
-    function addReason(){
-        var container = document.getElementById("reasons");
-        var input = document.createElement("textarea");
+ var addReasonIdx = 2;
+ function addReason(){
+     var container = document.getElementById("reasons");
+     var input = document.createElement("textarea");
 
-        input.cols = 25;
-        input.rows = 2;
-        input.name = "alert[description[reason" + addReasonIdx++ + "]]";
-        container.appendChild(input);
-        container.appendChild(document.createElement("br"));
-    }
+     input.cols = 25;
+     input.rows = 2;
+     input.name = "alert[description[reason" + addReasonIdx++ + "]]";
+     container.appendChild(input);
+     container.appendChild(document.createElement("br"));
+ }
 
-    $('#map_picker').locationpicker({
-        location: {latitude: 12.1325879, longitude: -86.2584606},
-        radius: 100,
-        enableAutocomplete: true,
-        inputBinding: {
-            latitudeInput: $('#alert_lat'),
-            longitudeInput: $('#alert_lon'),
-            locationNameInput: $('#alert_address')
-        }
-    });
+ $('#map_picker').locationpicker({
+     location: {latitude: 12.1325879, longitude: -86.2584606},
+     radius: 100,
+     enableAutocomplete: true,
+     inputBinding: {
+         latitudeInput: $('#alert_lat'),
+         longitudeInput: $('#alert_lon'),
+         locationNameInput: $('#alert_address')
+     }
+ });
 </script>
