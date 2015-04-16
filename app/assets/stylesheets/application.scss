@@ -368,6 +368,10 @@ body * {
   }
 
   .actions{  margin: 10px 0;}
+  #error_explanation {
+    h2 {  font-size: 14px;}
+    li {color: #c00;}
+  }
 
 }
 
