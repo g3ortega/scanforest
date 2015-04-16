@@ -8,9 +8,9 @@
 	<div id="MySemiModal">
 	    <div class="title">Report Type</div>
 	    <div class="report_options">
-            <a href="#" class="ball fire" id="add_fire_button"><i></i><span class="text">Incendio</span></a>
-            <a href="#" class="ball tree" id="add_deforestation_button"><i></i><span class="text">Tala</span></a>
-            <a href="#" class="ball bee" id="add_plague_button"><i></i><span class="text">Plaga</span></a>
+            <a href="#" class="ball fire" id="add_fire_button"><i></i><span class="text">Fire</span></a>
+            <a href="#" class="ball tree" id="add_deforestation_button"><i></i><span class="text">Logging</span></a>
+            <a href="#" class="ball bee" id="add_plague_button"><i></i><span class="text">Infestation</span></a>
         </div>
 	</div>
 	<div class="add_report_div">
@@ -27,18 +27,18 @@
 	     });
 
          $('#add_fire_button').click(function(event) {
-             $('#MySemiModal .title').html('Agregar Alerta de Incendio');
+             $('#MySemiModal .title').html('Report a fire');
              $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
 //             $('#modalSendAlert').toggle(300);
          });
 
          $('#add_deforestation_button').click(function(event) {
-             $('#MySemiModal .title').html('Agregar Alerta de Despale');
+             $('#MySemiModal .title').html('Report logging');
              $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
          });
 
          $('#add_plague_button').click(function(event) {
-             $('#MySemiModal .title').html('Agregar Alerta de Plagas');
+             $('#MySemiModal .title').html('Report infestation');
              $('.report_options').html("<%= escape_javascript(render 'alert_form') %>")
          });
 
