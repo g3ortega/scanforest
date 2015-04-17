@@ -48,7 +48,13 @@ $(document).ready(function() {
     var locats =[]
     var alertcircle;
     <% @alerts.each do |alert| %>
-    locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>, <%= alert.alert_type %>]);
+    <% if  alert.alert_images.first.uploaded_image.url == "/uploaded_images/original/missing.png" %>
+    <% @zwei = "/missing.jpg" %>
+    <% else %>
+    <% @zwei =  alert.alert_images.first.uploaded_image.url  %>
+    <%end%>
+
+    locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>, '<%= alert.alert_type %>','<%= @zwei %>', '<%= alert.magnitude%>']);
     <%end%>
 
     function createMarker(location,map){
@@ -85,8 +91,8 @@ $(document).ready(function() {
         };
 
         var boxText = document.createElement("div");
-        boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px;";
-        boxText.innerHTML = marker.title;
+        boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: #333333; padding: 5px;";
+        boxText.innerHTML = '<div class=\"row\"><div class=\"col-sm-4\"><img \src=\"'+location[5]+'\" width=\"80\" height=\"80\"/></div>> <div class=\"col-sm-8\"><p id="wasser"> Reason: '+location[0]+'<br>severity:'+ location[6]+'<br>Area:'+ location[3]+'</p></div>'
 
         var myOptions = {
             content: boxText
@@ -97,7 +103,7 @@ $(document).ready(function() {
             ,boxStyle: {
                 background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.12/examples/tipbox.gif') no-repeat"
                 ,opacity: 0.75
-                ,width: "280px"
+                ,width: "360px"
             }
             ,closeBoxMargin: "10px 2px 2px 2px"
             ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
