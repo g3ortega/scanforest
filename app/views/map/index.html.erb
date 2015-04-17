@@ -9,12 +9,13 @@
 <% if current_user.nil? %>
 You must <%= link_to 'sign in', new_user_session_path %> before creating alerts.
 <% else %>
-	    <div class="title">Report Type</div>
+	    <div class="title"></div>
 	    <div class="report_options">
             <a href="#" class="ball fire" id="add_fire_button"><i></i><span class="text">Fire</span></a>
             <a href="#" class="ball tree" id="add_deforestation_button"><i></i><span class="text">Logging</span></a>
             <a href="#" class="ball bee" id="add_plague_button"><i></i><span class="text">Pest</span></a>
         </div>
+        <div class="report_content"></div>
       <p><a href="#" onClick="$('#MySemiModal').toggle(300);">Cancel</a></p>
 <% end %>
 	</div>
@@ -28,23 +29,29 @@ You must <%= link_to 'sign in', new_user_session_path %> before creating alerts.
 	<script>
 	 jQuery(document).ready(function($) {
 	     $('#add_report').click(function(event) {
+         $('#MySemiModal .title').html('Create an alert');
+         $('.report_options').show();
+         $('.report_content').html('');
 		 $('#MySemiModal').toggle(300);
 	     });
 
          $('#add_fire_button').click(function(event) {
              $('#MySemiModal .title').html('Report a fire');
-             $('.report_options').html("<%= escape_javascript(render 'alert_form', type: 'fire') %>")
+             $('.report_options').hide();
+             $('.report_content').html("<%= escape_javascript(render 'alert_form', type: 'fire') %>")
 //             $('#modalSendAlert').toggle(300);
          });
 
          $('#add_deforestation_button').click(function(event) {
              $('#MySemiModal .title').html('Report logging');
-             $('.report_options').html("<%= escape_javascript(render 'alert_form', type: 'logging') %>")
+             $('.report_options').hide();
+             $('.report_content').html("<%= escape_javascript(render 'alert_form', type: 'logging') %>")
          });
 
          $('#add_plague_button').click(function(event) {
              $('#MySemiModal .title').html('Report infestation');
-             $('.report_options').html("<%= escape_javascript(render 'alert_form', type: 'pest') %>")
+             $('.report_options').hide();
+             $('.report_content').html("<%= escape_javascript(render 'alert_form', type: 'pest') %>")
          });
 
      });
