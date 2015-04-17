@@ -1,53 +1,53 @@
-$(document).ready(function() {
-    var map;
-    var centre = new google.maps.LatLng(13.1864581,-85.9448642);
-    var colour = '#6d9654';
-    var ib = new InfoBox();
+  $(document).ready(function() {
+      var map;
+      var centre = new google.maps.LatLng(13.1864581,-85.9448642);
+      var colour = '#6d9654';
+      var ib = new InfoBox();
 
-    function initialize() {
-	map = new google.maps.Map(document.getElementById('map'),
-			          { center: centre, zoom: 9,
-                                    mapTypeId: google.maps.MapTypeId.HYBRID,
-                                    zoomControlOptions: {
-                                        style: google.maps.ZoomControlStyle.LARGE
-                                    },
-                                    streetViewControl: false });
-        setMarkers(map, locats);
-        google.maps.event.addListener(map, "click", function() { ib.close() });
-        infowindow = new google.maps.InfoWindow({
-            content: "loading..."
-        });
+      function initialize() {
+    map = new google.maps.Map(document.getElementById('map'),
+                  { center: centre, zoom: 9,
+                                      mapTypeId: google.maps.MapTypeId.HYBRID,
+                                      zoomControlOptions: {
+                                          style: google.maps.ZoomControlStyle.LARGE
+                                      },
+                                      streetViewControl: false });
+          setMarkers(map, locats);
+          google.maps.event.addListener(map, "click", function() { ib.close() });
+          infowindow = new google.maps.InfoWindow({
+              content: "loading..."
+          });
 
-        // Save ref in DOM
-        document.getElementById('map').gMap = map;
+          // Save ref in DOM
+          document.getElementById('map').gMap = map;
 
-        // Try W3C Geolocation
-        if(navigator.geolocation) {
-            browserSupportFlag = true;
-            navigator.geolocation.getCurrentPosition(function(position) {
-                initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                map.setCenter(initialLocation);
-            }, function() {
-                handleNoGeolocation(browserSupportFlag);
-            });
-        }
-        // Browser doesn't support Geolocation
-        else {
-            browserSupportFlag = false;
-            handleNoGeolocation(browserSupportFlag);
-        }
+          // Try W3C Geolocation
+          if(navigator.geolocation) {
+              browserSupportFlag = true;
+              navigator.geolocation.getCurrentPosition(function(position) {
+                  initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                  map.setCenter(initialLocation);
+              }, function() {
+                  handleNoGeolocation(browserSupportFlag);
+              });
+          }
+          // Browser doesn't support Geolocation
+          else {
+              browserSupportFlag = false;
+              handleNoGeolocation(browserSupportFlag);
+          }
 
-        function handleNoGeolocation(errorFlag) {
-            if (errorFlag == true) {
-                alert("Geolocation service failed.");
-                initialLocation = newyork;
-            } else {
-                alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
-                initialLocation = siberia;
-            }
-            map.setCenter(initialLocation);
-        }
-    }
+          function handleNoGeolocation(errorFlag) {
+              if (errorFlag == true) {
+                  alert("Geolocation service failed.");
+                  initialLocation = newyork;
+              } else {
+                  alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+                  initialLocation = siberia;
+              }
+              map.setCenter(initialLocation);
+          }
+      }
 
     var locats =[]
     var alertcircle;
@@ -55,7 +55,11 @@ $(document).ready(function() {
     <% unless  alert.alert_images.first.present? %>
     <% @zwei = "/missing.jpg" %>
     <% else %>
-    <% @zwei =  alert.alert_images.first.uploaded_image.url  %>
+      <% if alert.alert_images.first.uploaded_image.url == "/uploaded_images/original/missing.png" %>
+        <% @zwei = "/missing.jpg" %>
+      <% else %>
+        <% @zwei =  alert.alert_images.first.uploaded_image.url  %>
+      <% end %>
     <%end%>
 
     locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>, '<%= alert.alert_type %>','<%= @zwei %>', '<%= alert.magnitude%>']);
