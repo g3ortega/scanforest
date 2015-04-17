@@ -52,7 +52,7 @@ $(document).ready(function() {
     var locats =[]
     var alertcircle;
     <% @alerts.each do |alert| %>
-    <% if  alert.alert_images.first.uploaded_image.url == "/uploaded_images/original/missing.png" or !alert.alert_images.presence %>
+    <% unless  alert.alert_images.first.present? %>
     <% @zwei = "/missing.jpg" %>
     <% else %>
     <% @zwei =  alert.alert_images.first.uploaded_image.url  %>
