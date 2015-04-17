@@ -77,9 +77,12 @@ class User < ActiveRecord::Base
       if registered_user
         return registered_user
       else
+        first_name = auth.info.first_name.present? ? auth.info.first_name : auth.info.name.split(" ")[0]
+        last_name = auth.info.last_name.present? ? auth.info.last_name : auth.info.name.split(" ")[1]
+
         user = User.create!(
-            first_name: auth.info.first_name,
-            last_name: auth.info.last_name,
+            first_name: first_name,
+            last_name: last_name,
             provider:auth.provider,
             uid:auth.uid,
             email:auth.info.email,

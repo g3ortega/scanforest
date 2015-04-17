@@ -17,6 +17,10 @@ $(document).ready(function() {
         infowindow = new google.maps.InfoWindow({
             content: "loading..."
         });
+
+        // Save ref in DOM
+        document.getElementById('map').gMap = map;
+
         // Try W3C Geolocation
         if(navigator.geolocation) {
             browserSupportFlag = true;
