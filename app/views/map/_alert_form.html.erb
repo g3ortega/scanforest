@@ -51,7 +51,10 @@
  }
 
  $('#map_picker').locationpicker({
-     location: {latitude: 12.1325879, longitude: -86.2584606},
+     location: {
+         latitude: map.gMap.getCenter().k,
+         longitude: map.gMap.getCenter().B
+     },
      radius: 100,
      enableAutocomplete: true,
      inputBinding: {
