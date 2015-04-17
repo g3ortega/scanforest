@@ -1,4 +1,9 @@
 class AlertsController < ApplicationController
+  def index
+    @all_alerts = Alert.all
+    @my_alerts = current_user.alerts
+  end
+
   def new
   end
 

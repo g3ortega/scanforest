@@ -14,7 +14,6 @@ module API
       def create
         @alert.user_id = current_user.id
         if @alert.save
-          #@alert.alert_images.create!(uploaded_image: process_image)
           render json: @alert, status: :created
         else
           render json: @alert.errors, status: :unprocessable_entity
@@ -35,17 +34,7 @@ module API
       end
 
       def alert_params
-        params.require(:alert).permit(:lat, :lon, :magnitude, :description, :area, :created)
-      end
-
-      def process_image
-        if params[:alert] && params[:alert][:photo]
-          data = StringIO.new(Base64.decode64(params[:alert][:photo][:data]))
-          data.class.class_eval { attr_accessor :filename, :content_type }
-          data.original_filename = params[:alert][:photo][:filename]
-          data.content_type = params[:alert][:photo][:content_type]
-          params[:alert][:uploaded_image] = data
-        end
+        params.require(:alert).permit(:lat, :lon, :magnitude, :description, :area, :created, :alert_type)
       end
     end
 end

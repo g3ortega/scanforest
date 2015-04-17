@@ -23,14 +23,12 @@ class Ability
           alert.user == user
         end
         #Abilities on AlertImage
-        can :create, AlertImage
-        can [:update, :destroy], AlertImage do |alert_image|
+        can [:create, :update, :destroy], AlertImage do |alert_image|
           alert_image.alert.user == user
         end
 
         #Abilities on AlertRanking
-        can :create, AlertRanking
-        can [:update, :destroy], AlertRanking do |alert_ranking|
+        can [:create, :update, :destroy], AlertRanking do |alert_ranking|
           alert_ranking.user == user
         end
       elsif user.guest?

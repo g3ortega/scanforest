@@ -4,11 +4,11 @@ module API
         skip_before_action :authenticate_with_token!
         
         def create
-            alert_image = Alert.find_by_id(params[:alert_id]).alert_images.new
-            alert_image.image_data = params[:alert_image]
-            #alert_image.user_id = current_user.id
+            alert = Alert.find_by_id(params[:alert_id])
+            alert_image = alert.alert_images.new(uploaded_image: params[:alert_image])
             if alert_image.save
-                render json: { success: 1 }, status: :created
+                alert_image.url = request.protocol + request.host_with_port + alert_image.uploaded_image.url
+                render json: alert_image, status: :created
             else
                 render json: alert_image.errors, status: :unprocessable_entity
             end
@@ -16,7 +16,7 @@ module API
         
         private
         def image_params
-            params.require(:alert_image).permit(:file_name,:content_type,:image_data)
+            params.require(:alert_image).permit(:alert_image)
         end
     end
 end
