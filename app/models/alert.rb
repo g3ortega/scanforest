@@ -22,7 +22,7 @@ class Alert < ActiveRecord::Base
   belongs_to :user
   belongs_to :country
   has_many :alert_rankings
-  has_many :alert_images
+  has_many :alert_images, dependent: :delete_all
   attr_accessor :address
 
   validates_presence_of :lat, :lon, :alert_type, :magnitude, :user
