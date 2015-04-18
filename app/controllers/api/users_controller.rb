@@ -1,13 +1,18 @@
 module API
   class UsersController < API::ApiController
-      skip_before_action :authenticate_with_token!, only: [:create]
+      skip_before_action :authenticate_with_token!, only: [:index, :create]
       load_and_authorize_resource
+
+      def index
+        render json: User.all, response: :ok
+      end
 
       def show
         render json: @user, response: :ok
       end
 
       def create
+        @user.password = params[:password]
         if @user.save
           render json: {token: @user.auth_token}, status: :created
         else
@@ -29,7 +34,7 @@ module API
       end
 
       def user_params
-        params.require(:user).permit(:email, :cell_phone, :message, :first_name, :last_name,:role, :password, :password_confirmation)
+        params.require(:user).permit(:email, :cell_phone, :message, :first_name, :last_name, :role, :password, :password_confirmation)
       end
 
       # def get_user
