@@ -31,7 +31,7 @@ class Alert < ActiveRecord::Base
   validates :magnitude, inclusion: { in: (1..10), message: "Invalid magnitud value" }
   validates :alert_type, inclusion: { in: %w(logging fire pest), message: "Invalid alert type" }
 
-  after_create :send_messages_to_technicians
+  #after_create :send_messages_to_technicians
 
   protected
   def send_messages_to_technicians
