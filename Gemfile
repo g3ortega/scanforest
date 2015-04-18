@@ -83,3 +83,7 @@ gem 'omniauth-github', '~> 1.1.2'
 
 gem 'httparty'
 gem 'iso_country_codes'
+
+
+# Exceptions management
+gem 'exception_notification'

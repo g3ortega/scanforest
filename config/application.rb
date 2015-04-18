@@ -30,5 +30,16 @@ module Scanforest
       config.account_sid = 'account_sid'
       config.auth_token = 'auth_token'
     end
+
+    config.action_mailer.smtp_settings = {
+        :address   => "smtp.mandrillapp.com",
+        :port      => 587,
+        :enable_starttls_auto => true,
+        :user_name => Rails.application.secrets.mandrill_email,
+        :password  => Rails.application.secrets.mandrill_password,
+        :authentication => 'login',
+        :domain => 'nuhome.com.ni',
+    }
+
   end
 end
