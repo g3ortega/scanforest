@@ -27,6 +27,6 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :role, :created_at, :updated_at, :last_sign_in_at
+  attributes :id, :email, :first_name, :last_name, :role, :created_at, :updated_at, :last_sign_in_at
   has_many :alerts
 end

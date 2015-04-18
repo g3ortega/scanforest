@@ -1,10 +1,16 @@
 class AlertsController < ApplicationController
+  load_and_authorize_resource
   def index
     @all_alerts = Alert.all
-    @my_alerts = current_user.alerts
+    @my_alerts = current_user.alerts if user_signed_in?
   end
 
   def new
+  end
+  
+  def destroy
+    @alert.destroy 
+    redirect_to alerts_path
   end
 
   def create

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json}  do
     with_options :except => [:edit, :new] do |option|
-      resources :users, :only => [:show, :update, :create, :destroy] do
+      resources :users, :only => [:index, :show, :update, :create, :destroy] do
         option.resources :alerts , :shallow => true do
           option.resources :alert_rankings, :path => "rankings"
           option.resources :alert_images, :only => [:create], :path => "images"

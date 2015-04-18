@@ -24,18 +24,79 @@
 </style>
 <div id="country">
 <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">All</a></li>
+        <% if user_signed_in? %>
+        <li role="presentation"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Own</a></li>
+        <% end %>
+      </ul>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">All alerts</a></li>
-    <li role="presentation"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">My alerts</a></li>
-  </ul>
-
-  <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
+        <table class="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <!--<th>Country</th>-->
+          <th>Type</th>
+          <th>Magnitude</th>
+          <th>Area</th>
+          <th>Description</th>
+          <th>Created at</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <% @all_alerts.each do |alert| %>
+          <tr>
+            <td><%= alert.id %></td>
+            <!--<td><%= alert.country_id %></td>-->
+            <td><%= alert.alert_type %></td>
+            <td><%= alert.magnitude %></td>
+            <td><%= "#{alert.area} acres" %></td>
+            <td><%= alert.description %></td>
+            <td><%= time_ago_in_words(alert.created_at) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     </div>
-    <div role="tabpanel" class="tab-pane" id="tab1">...</div>
+    <div role="tabpanel" class="tab-pane" id="tab1">
+        <% if user_signed_in? && @my_alerts.present?%>
+        <table class="table">
+        <thead>
+        <tr>
+          <th>#</th>
+          <!--<th>Country</th>-->
+          <th>Type</th>
+          <th>Magnitude</th>
+          <th>Area</th>
+          <th>Description</th>
+          <th>Created at</th>
+          <th>Actions</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <% @my_alerts.each do |alert| %>
+          <tr>
+            <td><%= alert.id %></td>
+            <!--<td><%= alert.country_id %></td>-->
+            <td><%= alert.alert_type %></td>
+            <td><%= alert.magnitude %></td>
+            <td><%= "#{alert.area} acres" %></td>
+            <td><%= alert.description %></td>
+            <td><%= time_ago_in_words(alert.created_at) %></td>
+            <td>
+              <!--<%= link_to 'Edit', edit_alert_path(alert), :class => 'btn btn-mini' %>-->
+              <%= link_to 'Destroy', alert_path(alert), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+     <% else %>
+        <mem>You haven't created any alert yet.</mem>
+    <% end %>
+    </div>
   </div>
 </div>
 </div>
