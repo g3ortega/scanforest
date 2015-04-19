@@ -12,7 +12,7 @@ module API
       end
 
       def create
-        @alert.user_id = current_user.id
+        @alert = current_user.alerts.new(alert_params)
         if @alert.save
           render json: @alert, status: :created
         else

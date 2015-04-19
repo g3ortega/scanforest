@@ -62,7 +62,7 @@
       <% end %>
     <%end%>
 
-    locats.push(['<%=  alert.description['reason1'] %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>, '<%= alert.alert_type %>','<%= @zwei %>', '<%= alert.magnitude%>']);
+    locats.push(['<%=  alert.description %>','<%=  alert.lat %>','<%=  alert.lon %>', <%=  alert.area %>, '<%= alert.alert_type %>','<%= @zwei %>', '<%= alert.magnitude%>']);
     <%end%>
 
     function createMarker(location,map){

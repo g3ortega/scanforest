@@ -2,20 +2,6 @@
 
 <h1>New alert</h1>
 
-<script type='text/javascript'>
-var addReasonIdx = 2;
-function addReason(){
-	var container = document.getElementById("reasons");
-    var input = document.createElement("textarea");
-
-	input.cols = 25;
-	input.rows = 2;
-	input.name = "alert[description[reason" + addReasonIdx++ + "]]";
-	container.appendChild(input);
-    container.appendChild(document.createElement("br"));
-}
-</script>
-
 <%= form_for :alert, url: alerts_path do |f| %>
 <p>
 <%= f.label :lat, 'Latitude' %><br>
@@ -33,11 +19,9 @@ function addReason(){
 </p>
 
 <div id="reasons">
-<%= f.label :description, "Reasons" %><br>
-<%= f.text_area "description[reason1]", size: '25x2' %><br>
+<%= f.label :description, "Reason" %><br>
+<%= f.text_area :description, size: '25x2' %><br>
 </div>
-
-<a onclick="addReason()">Add another reason</a>
 
 <p>
 <%= f.label :area %><br>

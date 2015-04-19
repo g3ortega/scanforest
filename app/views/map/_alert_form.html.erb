@@ -43,11 +43,10 @@
 
       <div class="row">
         <div class="lcell">
-          <%= f.label :description, "Reasons" %><br>
-          <small><a onclick="addReason()">Add another</a></small>
+          <%= f.label :description, "Reason" %><br>
         </div>
         <div class="rcell">
-          <div id="reasons"><%= f.text_area "description[reason1]", rows: 2, style: 'width: 200px;' %><br></div>
+          <div id="reasons"><%= f.text_area :description, rows: 2, style: 'width: 200px;' %><br></div>
         </div>
       </div>
     </div>
@@ -65,18 +64,6 @@
 </div>
 
 <script type='text/javascript'>
- var addReasonIdx = 2;
- function addReason(){
-     var container = document.getElementById("reasons");
-     var input = document.createElement("textarea");
-
-     input.cols = 25;
-     input.rows = 2;
-     input.name = "alert[description[reason" + addReasonIdx++ + "]]";
-     container.appendChild(input);
-     container.appendChild(document.createElement("br"));
- }
-
  $('#map_picker').locationpicker({
      location: {
          latitude: map.gMap.getCenter().k,
