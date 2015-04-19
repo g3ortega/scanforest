@@ -13,5 +13,6 @@
 #
 
 class AlertImageSerializer < ActiveModel::Serializer
-  attributes :id, :url, :uploaded_image_file_name,  :created_at, :updated_at
+  attributes :id, :uploaded_image , :uploaded_image_file_name,  :created_at, :updated_at
 end
+

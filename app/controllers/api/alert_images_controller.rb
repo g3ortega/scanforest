@@ -5,9 +5,8 @@ module API
         
         def create
             alert = Alert.find_by_id(params[:alert_id])
-            alert_image = alert.alert_images.new(uploaded_image: params[:alert_image])
-            if alert_image.save
-                alert_image.url = request.protocol + request.host_with_port + alert_image.uploaded_image.url
+            alert_image = alert.alert_images.create!(uploaded_image: params[:alert_image])
+            if alert_image.persisted?
                 render json: alert_image, status: :created
             else
                 render json: alert_image.errors, status: :unprocessable_entity
@@ -16,7 +15,7 @@ module API
         
         private
         def image_params
-            params.require(:alert_image).permit(:alert_image)
+            params.require(:alert_image).permit(:alert_image,:alert_id)
         end
     end
 end

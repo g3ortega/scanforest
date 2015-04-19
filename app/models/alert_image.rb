@@ -15,7 +15,6 @@
 class AlertImage < ActiveRecord::Base
   belongs_to :alert
   validates :alert, presence: true
-  attr_accessor :url
 
   has_attached_file :uploaded_image
   validates_attachment_content_type :uploaded_image,
