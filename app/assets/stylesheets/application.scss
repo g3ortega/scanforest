@@ -51,6 +51,27 @@ a {
   font-size: 18px;
   line-height: 20px;
 }
+.pesttype {
+     width:40px;
+     height:40px;
+    background-image: url('../images/icon-bee.png');
+    background-repeat:no-repeat;background-size:40px 40px;
+}
+
+.loggingtype {
+     width:40px;
+     height:40px;
+    background-image: url('../images/icon-tree.png');
+    background-repeat:no-repeat;background-size:40px 40px;
+}
+
+.firetype {
+     width:40px;
+     height:40px;
+    background-image: url('../images/icon-fuego.png');
+    background-repeat:no-repeat;background-size:40px 40px;
+}
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {

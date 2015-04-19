@@ -50,9 +50,12 @@
           <tr>
             <td><%= alert.id %></td>
             <!--<td><%= alert.country_id %></td>-->
-            <td><%= alert.alert_type %></td>
+            <% if alert.alert_type == "pest" %><td class="pesttype"></td>
+            <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
+            <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
+            <% else %><td>None</td><% end %>
             <td><%= alert.magnitude %></td>
-            <td><%= "#{alert.area} acres" %></td>
+            <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
             <td><%= alert.description %></td>
             <td><%= time_ago_in_words(alert.created_at) %></td>
           </tr>
@@ -80,9 +83,12 @@
           <tr>
             <td><%= alert.id %></td>
             <!--<td><%= alert.country_id %></td>-->
-            <td><%= alert.alert_type %></td>
+            <% if alert.alert_type == "pest" %><td class="pesttype"></td>
+            <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
+            <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
+            <% else %><td>None</td><% end %>
             <td><%= alert.magnitude %></td>
-            <td><%= "#{alert.area} acres" %></td>
+            <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
             <td><%= alert.description %></td>
             <td><%= time_ago_in_words(alert.created_at) %></td>
             <td>
