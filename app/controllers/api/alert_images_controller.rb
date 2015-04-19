@@ -1,7 +1,6 @@
 module API
     class AlertImagesController < API::ApiController
         #load_and_authorize_resource param_method: :image_params
-        skip_before_action :authenticate_with_token!
         
         def create
             alert = Alert.find_by_id(params[:alert_id])
