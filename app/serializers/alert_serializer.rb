@@ -6,14 +6,14 @@
 #  lat         :float
 #  lon         :float
 #  magnitude   :integer
-#  description :hstore
+#  description :string
 #  area        :float
 #  created     :time
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  country_id  :integer
-#  type        :string
+#  alert_type  :string
 #
 
 class AlertSerializer < ActiveModel::Serializer

@@ -6,7 +6,7 @@
 #  lat         :float
 #  lon         :float
 #  magnitude   :integer
-#  description :hstore
+#  description :string
 #  area        :float
 #  created     :time
 #  created_at  :datetime         not null
@@ -19,6 +19,7 @@
 require 'twilio-ruby'
 
 class Alert < ActiveRecord::Base
+  default_scope { order('created_at DESC') }
   belongs_to :user
   belongs_to :country
   has_many :alert_rankings
