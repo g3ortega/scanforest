@@ -52,25 +52,27 @@ a {
   line-height: 20px;
 }
 .pesttype {
-     width:40px;
-     height:40px;
+     width:50px;
+     height:50px;
     background-image: url('../images/icon-bee.png');
-    background-repeat:no-repeat;background-size:40px 40px;
+    background-repeat:no-repeat;background-size:50px 50px;
 }
 
 .loggingtype {
-     width:40px;
-     height:40px;
+     width:50px;
+     height:50px;
     background-image: url('../images/icon-tree.png');
-    background-repeat:no-repeat;background-size:40px 40px;
+    background-repeat:no-repeat;background-size:50px 50px;
 }
 
 .firetype {
-     width:40px;
-     height:40px;
+     width:50px;
+     height:50px;
     background-image: url('../images/icon-fuego.png');
-    background-repeat:no-repeat;background-size:40px 40px;
+    background-repeat:no-repeat;background-size:50px 50px;
 }
+
+.photo-thumb { width:50; height:50px; }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,

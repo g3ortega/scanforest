@@ -36,10 +36,10 @@
         <table class="table">
         <thead>
         <tr>
-          <th>#</th>
+          <th width="120px"></th>
           <!--<th>Country</th>-->
-          <th>Type</th>
-          <th>Magnitude</th>
+          <th width="120px">Type</th>
+          <th width="120px">Magnitude</th>
           <th>Area</th>
           <th>Description</th>
           <th>Created at</th>
@@ -48,9 +48,10 @@
       <tbody>
         <% @all_alerts.each do |alert| %>
           <tr>
-            <td><%= alert.id %></td>
+            <!--<td><%= alert.id %></td>-->
+            <td><%= image_tag alert.alert_images.count > 0 ? alert.alert_images.last.uploaded_image.url : 'no-image-available.png', class: 'photo-thumb', alt:'No image' %></td>
             <!--<td><%= alert.country_id %></td>-->
-            <% if alert.alert_type == "pest" %><td class="pesttype"></td>
+              <% if alert.alert_type == "pest" %><td class="pesttype"></td>
             <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
             <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
             <% else %><td>None</td><% end %>
@@ -68,10 +69,10 @@
         <table class="table">
         <thead>
         <tr>
-          <th>#</th>
+         <th width="120px"></th>
           <!--<th>Country</th>-->
-          <th>Type</th>
-          <th>Magnitude</th>
+          <th width="120px">Type</th>
+          <th width="120px">Magnitude</th>
           <th>Area</th>
           <th>Description</th>
           <th>Created at</th>
@@ -81,9 +82,10 @@
       <tbody>
         <% @my_alerts.each do |alert| %>
           <tr>
-            <td><%= alert.id %></td>
+            <!--<td><%= alert.id %></td>-->
+            <td><%= image_tag alert.alert_images.count > 0 ? alert.alert_images.last.uploaded_image.url : 'no-image-available.png', class: 'photo-thumb', alt:'No image' %></td>
             <!--<td><%= alert.country_id %></td>-->
-            <% if alert.alert_type == "pest" %><td class="pesttype"></td>
+              <% if alert.alert_type == "pest" %><td class="pesttype"></td>
             <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
             <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
             <% else %><td>None</td><% end %>
