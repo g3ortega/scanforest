@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'countries/:iso' => 'dashboard#country', as: 'country'
   get 'map' => 'map#index'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_up => 'join'}, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :alerts
 
