@@ -22,8 +22,8 @@ atlassian-ide-plugin.xml
 .idea
 .idea/*
 
-public/system/*
-public/system
+#public/system/*
+#public/system
 
 # Ignore spring files
 /spring
