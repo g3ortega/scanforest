@@ -15,4 +15,10 @@
 //= require highcharts
 //= require bootstrap-sprockets
 //= require locationpicker.jquery
+//= require jquery.barrating
 //= require_tree .
+
+$(function() {
+        $('.rating-bar').barrating( {readonly:true});
+        });
+        

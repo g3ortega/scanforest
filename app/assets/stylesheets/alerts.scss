@@ -1,3 +1,54 @@
 // Place all the styles related to the alerts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pesttype {
+     width:50px;
+     height:50px;
+    background-image: url('../images/icon-bee.png');
+    background-repeat:no-repeat;background-size:50px 50px;
+}
+
+.loggingtype {
+     width:50px;
+     height:50px;
+    background-image: url('../images/icon-tree.png');
+    background-repeat:no-repeat;background-size:50px 50px;
+}
+
+.firetype {
+     width:50px;
+     height:50px;
+    background-image: url('../images/icon-fuego.png');
+    background-repeat:no-repeat;background-size:50px 50px;
+}
+
+.photo-thumb { width:50; height:50px; }
+
+.rating-a .br-widget {
+    height: 52px;
+}
+
+.rating-a .br-widget a {
+    display: block;
+    width: 15px;
+    padding: 5px 0 5px 0;
+    height: 30px;
+    float: left;
+    background-color: #ffffff;
+    margin: 1px;
+    text-align: center;
+}
+
+.rating-a .br-widget a.br-active,
+.rating-a .br-widget a.br-selected {
+    background-color: #cd5c5c;
+}
+
+.rating-a .br-widget .br-current-rating {
+    font-size: 20px;
+    line-height: 2;
+    float: left;
+    padding: 0 20px 0 20px;
+    color: #0A590B;
+}

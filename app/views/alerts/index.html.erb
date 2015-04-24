@@ -39,7 +39,7 @@
           <th width="120px"></th>
           <!--<th>Country</th>-->
           <th width="120px">Type</th>
-          <th width="120px">Magnitude</th>
+          <th width="200px">Magnitude</th>
           <th>Area</th>
           <th>Description</th>
           <th>Created at</th>
@@ -55,7 +55,11 @@
             <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
             <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
             <% else %><td>None</td><% end %>
-            <td><%= alert.magnitude %></td>
+            <td class="rating-a">
+            <select class="rating-bar" name="rating">
+              <% (1..10).each do |x| %>
+                <option value="<%=x%>" <%= selected="selected" if x==alert.magnitude %>></option>
+              <% end %></select></td>
             <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
             <td><%= alert.description %></td>
             <td><%= time_ago_in_words(alert.created_at) %></td>
@@ -72,7 +76,7 @@
          <th width="120px"></th>
           <!--<th>Country</th>-->
           <th width="120px">Type</th>
-          <th width="120px">Magnitude</th>
+          <th width="200px">Magnitude</th>
           <th>Area</th>
           <th>Description</th>
           <th>Created at</th>
@@ -89,7 +93,11 @@
             <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
             <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
             <% else %><td>None</td><% end %>
-            <td><%= alert.magnitude %></td>
+            <td class="rating-a">
+            <select class="rating-bar" name="rating">
+              <% (1..10).each do |x| %>
+                <option value="<%=x%>" <%= selected="selected" if x==alert.magnitude %>></option>
+              <% end %></select></td>
             <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
             <td><%= alert.description %></td>
             <td><%= time_ago_in_words(alert.created_at) %></td>
