@@ -33,85 +33,10 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-        <table class="table">
-        <thead>
-        <tr>
-          <th width="120px"></th>
-          <!--<th>Country</th>-->
-          <th width="120px">Type</th>
-          <th width="200px">Magnitude</th>
-          <th>Area</th>
-          <th>Description</th>
-          <th>Created at</th>
-        </tr>
-      </thead> 
-      <tbody>
-        <% @all_alerts.each do |alert| %>
-          <tr>
-            <!--<td><%= alert.id %></td>-->
-            <td><%= image_tag alert.alert_images.count > 0 ? alert.alert_images.last.uploaded_image.url : 'no-image-available.png', class: 'photo-thumb', alt:'No image' %></td>
-            <!--<td><%= alert.country_id %></td>-->
-              <% if alert.alert_type == "pest" %><td class="pesttype"></td>
-            <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
-            <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
-            <% else %><td>None</td><% end %>
-            <td class="rating-a">
-            <select class="rating-bar" name="rating">
-              <% (1..10).each do |x| %>
-                <option value="<%=x%>" <%= selected="selected" if x==alert.magnitude %>></option>
-              <% end %></select></td>
-            <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
-            <td><%= alert.description %></td>
-            <td><%= time_ago_in_words(alert.created_at) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+     <%= @all_alerts.present? ? render(partial: "alerts", locals: { alerts: @all_alerts, own: false }) : "There's no alert to be displayed" %>
     </div>
     <div role="tabpanel" class="tab-pane" id="tab1">
-        <% if user_signed_in? && @my_alerts.present?%>
-        <table class="table">
-        <thead>
-        <tr>
-         <th width="120px"></th>
-          <!--<th>Country</th>-->
-          <th width="120px">Type</th>
-          <th width="200px">Magnitude</th>
-          <th>Area</th>
-          <th>Description</th>
-          <th>Created at</th>
-          <th>Actions</th>
-        </tr>
-      </thead> 
-      <tbody>
-        <% @my_alerts.each do |alert| %>
-          <tr>
-            <!--<td><%= alert.id %></td>-->
-            <td><%= image_tag alert.alert_images.count > 0 ? alert.alert_images.last.uploaded_image.url : 'no-image-available.png', class: 'photo-thumb', alt:'No image' %></td>
-            <!--<td><%= alert.country_id %></td>-->
-              <% if alert.alert_type == "pest" %><td class="pesttype"></td>
-            <% elsif alert.alert_type == "logging" %> <td class="loggingtype"></td>
-            <% elsif alert.alert_type == "fire" %><td class="firetype"></td>
-            <% else %><td>None</td><% end %>
-            <td class="rating-a">
-            <select class="rating-bar" name="rating">
-              <% (1..10).each do |x| %>
-                <option value="<%=x%>" <%= selected="selected" if x==alert.magnitude %>></option>
-              <% end %></select></td>
-            <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
-            <td><%= alert.description %></td>
-            <td><%= time_ago_in_words(alert.created_at) %></td>
-            <td>
-              <!--<%= link_to 'Edit', edit_alert_path(alert), :class => 'btn btn-mini' %>-->
-              <%= link_to 'Destroy', alert_path(alert), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-     <% else %>
-        <mem>You haven't created any alert yet.</mem>
-    <% end %>
+     <%= @my_alerts.present? ? render(partial: "alerts", locals: { alerts: @my_alerts, own: true}) : "You haven't created any alert yet" %>
     </div>
   </div>
 </div>

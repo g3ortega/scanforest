@@ -1,0 +1,34 @@
+  <table class="table">
+        <thead>
+        <tr>
+          <th width="120px"></th>
+          <th width="120px">Type</th>
+          <th width="200px">Magnitude</th>
+          <th>Area</th>
+          <th>Description</th>
+          <th>Created at</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <% alerts.each do |alert| %>
+          <tr>
+            <td><%= image_tag alert.alert_images.count > 0 ? alert.alert_images.last.uploaded_image.url : 'no-image-available.png', class: 'photo-thumb', alt:'No image' %></td>
+            <td class="<%="#{alert.alert_type}type"%>"></td>
+            <td class="rating-a">
+            <select class="rating-bar" name="rating">
+              <% (1..10).each do |x| %>
+                <option value="<%=x%>" <%= selected="selected" if x==alert.magnitude %>></option>
+              <% end %></select></td>
+            <td><%= alert.area.present? ? "#{alert.area} acres" : "--" %></td>
+            <td><%= alert.description %></td>
+            <td><%= time_ago_in_words(alert.created_at) %></td>
+            <% if own %>
+              <td>
+                <!--<%= link_to 'Edit', edit_alert_path(alert), :class => 'btn btn-mini' %>-->
+                <%= link_to 'Destroy', alert_path(alert), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
