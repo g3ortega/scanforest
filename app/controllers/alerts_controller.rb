@@ -1,8 +1,8 @@
 class AlertsController < ApplicationController
   load_and_authorize_resource
   def index
-    @all_alerts = Alert.all
-    @my_alerts = current_user.alerts if user_signed_in?
+    @all_alerts = Alert.includes(:alert_images).all
+    @my_alerts = @all_alerts.where(:user_id => current_user.id) if user_signed_in?
   end
 
   def new
